@@ -1,0 +1,51 @@
+.main-header {
+  position: absolute; /* Sits on top of the video */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  box-sizing: border-box;
+  z-index: 100;
+  color: white; /* Text is white because it sits on the dark video */
+}
+
+.logo {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.logo-sub {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 8px;
+  font-family: var(--font-secondary);
+  font-weight: 300;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  gap: 40px;
+}
+
+.main-header a {
+  text-decoration: none;
+  color: inherit;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+.main-header a:hover {
+  color: var(--gold);
+}
+
+.cta-link {
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 5px;
+}

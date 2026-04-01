@@ -1,0 +1,12 @@
+.inquiry-section { padding: 120px 0; background-color: var(--sage-green); color: white; }
+.inquiry-container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; padding: 0 40px; }
+.inquiry-brand p { font-family: var(--font-secondary); line-height: 1.8; margin: 30px 0; opacity: 0.9; }
+.inquiry-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; gap: 20px; }
+input, select, textarea { 
+  width: 100%; padding: 15px; background: rgba(255,255,255,0.1); 
+  border: 1px solid rgba(255,255,255,0.3); color: white; font-family: var(--font-secondary); 
+}
+input::placeholder, textarea::placeholder { color: white; opacity: 0.7; }
+select option { color: black; }
+.btn-primary { align-self: flex-start; }

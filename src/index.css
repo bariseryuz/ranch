@@ -1,0 +1,29 @@
+/* Import Playfair Display (Luxury Serif) and Montserrat (Clean Sans-Serif alternative to Avenir) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+  --saddle-brown: #5D3A1A;
+  --warm-ivory: #F5F2E8;
+  --sage-green: #9FAF90;
+  --sandstone: #D2B48C;
+  --gold: #C5A059;
+  
+  --font-primary: 'Playfair Display', serif;
+  --font-secondary: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--warm-ivory); /* Your requested Ivory background */
+  color: var(--saddle-brown);
+  font-family: var(--font-secondary);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
