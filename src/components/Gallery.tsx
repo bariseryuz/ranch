@@ -9,7 +9,7 @@ const images = [
 
 const Gallery = () => {
   return (
-    <section className="gallery-section">
+    <section id="gallery" className="gallery-section">
       <div className="gallery-grid">
         {images.map((img, i) => (
           <div key={i} className="gallery-item">
