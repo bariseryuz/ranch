@@ -1,0 +1,103 @@
+/* Shared editorial sections for inner pages */
+.page-section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
+}
+
+.page-section--wide {
+  max-width: 960px;
+}
+
+.page-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 0 0 1rem;
+}
+
+.page-section p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  font-weight: 300;
+  margin: 0 0 1.25rem;
+  opacity: 0.92;
+}
+
+.page-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+@media (max-width: 800px) {
+  .page-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-columns h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
+}
+
+.page-columns ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.65rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.feature-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.cta-row a {
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.cta-row a.primary {
+  background: var(--gold);
+  color: white;
+}
+
+.cta-row a.secondary {
+  border: 1px solid var(--saddle-brown);
+  color: var(--saddle-brown);
+}
+
+.cta-row a.secondary:hover {
+  background: var(--saddle-brown);
+  color: var(--warm-ivory);
+}

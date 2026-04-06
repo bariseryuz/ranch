@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Gallery.css';
 
 const images = [
@@ -18,7 +19,13 @@ const Gallery = () => {
         ))}
       </div>
       <div className="gallery-footer">
-        <button className="btn-secondary" style={{color: 'var(--saddle-brown)', borderColor: 'var(--saddle-brown)'}}>View Full Gallery</button>
+        <Link
+          to="/gallery"
+          className="btn-secondary"
+          style={{ color: 'var(--saddle-brown)', borderColor: 'var(--saddle-brown)' }}
+        >
+          View Full Gallery
+        </Link>
       </div>
     </section>
   );

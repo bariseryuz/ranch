@@ -1,0 +1,68 @@
+.inquiry-teaser {
+  padding: 5rem 1.5rem;
+  background: linear-gradient(180deg, var(--warm-ivory) 0%, rgba(210, 180, 140, 0.15) 100%);
+  text-align: center;
+}
+
+.inquiry-teaser__inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--font-secondary);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 1rem;
+}
+
+.inquiry-teaser__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.inquiry-teaser__copy {
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 300;
+  margin: 0 0 2rem;
+  opacity: 0.9;
+}
+
+.inquiry-teaser__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.inquiry-teaser__btn {
+  display: inline-block;
+  padding: 15px 35px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: var(--font-secondary);
+  font-size: 0.7rem;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.inquiry-teaser .btn-primary {
+  background-color: var(--gold);
+  border: none;
+  color: white;
+}
+
+.inquiry-teaser .btn-secondary {
+  background: transparent;
+  border: 1px solid var(--saddle-brown);
+  color: var(--saddle-brown);
+}
+
+.inquiry-teaser .btn-secondary:hover {
+  background: var(--saddle-brown);
+  color: var(--warm-ivory);
+}

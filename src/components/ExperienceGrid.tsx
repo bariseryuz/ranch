@@ -1,20 +1,24 @@
+import { Link } from 'react-router-dom';
 import './ExperienceGrid.css';
 
 const experiences = [
   {
     title: "Corporate Retreats",
+    to: "/corporate-retreats",
     image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1000",
     features: ["Leadership retreats", "Team building", "Executive summits", "Company celebrations"],
     extra: "Private meeting spaces • Curated dining • Outdoor experiences"
   },
   {
     title: "Luxury Weddings",
+    to: "/luxury-weddings",
     image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000",
     features: ["Scenic ceremony locations", "Luxury tented receptions", "Rehearsal dinners", "Weekend experiences"],
     extra: "Exclusive destination • western luxury setting"
   },
   {
     title: "Private Events",
+    to: "/private-events",
     image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1000",
     features: ["Milestone celebrations", "Family reunions", "Influencer retreats", "Brand activations"],
     extra: "Chef-driven menus • Private ranch buyouts"
@@ -35,7 +39,7 @@ const ExperienceGrid = () => {
             <div className="card-image-wrapper">
               <img src={item.image} alt={item.title} className="card-image" />
               <div className="card-overlay">
-                 <button className="card-btn">Explore Details</button>
+                 <Link to={item.to} className="card-btn">Explore Details</Link>
               </div>
             </div>
             <div className="card-content">

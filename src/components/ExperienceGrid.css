@@ -72,6 +72,7 @@
 }
 
 .card-btn {
+  display: inline-block;
   background: white;
   color: var(--saddle-brown);
   border: none;
@@ -80,6 +81,8 @@
   text-transform: uppercase;
   font-size: 0.7rem;
   letter-spacing: 2px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .card-content {

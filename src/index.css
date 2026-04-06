@@ -1,24 +1,44 @@
-/* Import Playfair Display (Luxury Serif) and Montserrat (Clean Sans-Serif alternative to Avenir) */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;600&display=swap');
+/* Primary: editorial serif (Didot-like). Secondary: clean sans (Avenir / Helvetica family). */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600&display=swap');
 
 :root {
   --saddle-brown: #5D3A1A;
-  --warm-ivory: #F5F2E8;
-  --sage-green: #9FAF90;
-  --sandstone: #D2B48C;
-  --gold: #C5A059;
-  
-  --font-primary: 'Playfair Display', serif;
-  --font-secondary: 'Montserrat', sans-serif;
+  --warm-ivory: #f5f2e8;
+  --sage-green: #9faf90;
+  --sandstone: #d2b48c;
+  --gold: #c5a059;
+
+  --font-primary: 'Playfair Display', 'Didot', 'Bodoni MT', Georgia, serif;
+  --font-secondary:
+    'Montserrat',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    system-ui,
+    sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--warm-ivory); /* Your requested Ivory background */
+  background-color: var(--warm-ivory);
   color: var(--saddle-brown);
   font-family: var(--font-secondary);
   -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.site-main {
+  min-height: 40vh;
 }
 
 h1, h2, h3 {
