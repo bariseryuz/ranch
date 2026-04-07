@@ -1,0 +1,11 @@
+# https://docs.railway.app/guides/config-as-code
+[build]
+builder = "nixpacks"
+# Force root assets on Railway (overrides any VITE_BASE=/ranch/ set in the dashboard)
+buildCommand = "npm ci && VITE_BASE=/ npm run build"
+
+[deploy]
+startCommand = "npm run start"
+healthcheckPath = "/"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
