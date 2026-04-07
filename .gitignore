@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Large raw video — host on CDN / Drive; keeps git push reliable
+public/vide.MOV
