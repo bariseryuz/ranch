@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './ExperienceGrid.css';
 
+const base = import.meta.env.BASE_URL;
+
 const experiences = [
   {
     title: 'Corporate Retreats',
@@ -58,8 +60,7 @@ const experiences = [
   {
     title: 'Culinary',
     to: '/culinary',
-    image:
-      '/table.png',
+    image: `${base}table.png`,
     features: [
       'Chef-driven seasonal menus',
       'Live-fire cooking',
@@ -71,8 +72,7 @@ const experiences = [
   {
     title: 'Accommodations',
     to: '/accommodations',
-    image:
-      'https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=1000',
+    image: `${base}ran.png`,
     features: [
       'Luxury ranch homes',
       'Guest cabins',

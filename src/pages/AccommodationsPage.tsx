@@ -17,7 +17,7 @@ export default function AccommodationsPage() {
       <PageHero
         title="Accommodations"
         subtitle="Privacy · Comfort · Western calm"
-        image="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=2000"
+        image={`${import.meta.env.BASE_URL}ran.png`}
         imageAlt="Luxury ranch home"
       />
       <article className="page-section">

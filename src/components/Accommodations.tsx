@@ -1,5 +1,7 @@
 import './Accommodations.css';
 
+const base = import.meta.env.BASE_URL;
+
 const Accommodations = () => {
   return (
     <section id="stay" className="stay-section">
@@ -10,15 +12,15 @@ const Accommodations = () => {
         </div>
         <div className="stay-grid">
           <div className="stay-item large">
-            <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=1000" alt="Ranch Home" />
+            <img src={`${base}ran.png`} alt="Luxury ranch home" />
             <div className="stay-info"><h3>Luxury Ranch Homes</h3></div>
           </div>
           <div className="stay-item">
-            <img src="https://images.unsplash.com/photo-1449156733076-eb158af622e5?q=80&w=1000" alt="Guest Cabins" />
+            <img src={`${base}Cabin.png`} alt="Guest cabins" />
             <div className="stay-info"><h3>Guest Cabins</h3></div>
           </div>
           <div className="stay-item">
-            <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=1000" alt="Glamping" />
+            <img src={`${base}Glamping.jpeg`} alt="Glamping and suites" />
             <div className="stay-info"><h3>Glamping & Suites</h3></div>
           </div>
         </div>
