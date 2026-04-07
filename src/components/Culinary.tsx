@@ -39,9 +39,9 @@ const Culinary = () => {
 
           {/* Right: Large Vertical Image */}
           <div className="culinary-image">
-            <img 
-              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=1200" 
-              alt="Live fire cooking at the ranch" 
+            <img
+              src="/table.png"
+              alt="Dining at Briggs Brothers Ranch"
             />
             <div className="image-caption">Live-Fire Excellence</div>
           </div>

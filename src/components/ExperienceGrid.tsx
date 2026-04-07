@@ -59,7 +59,7 @@ const experiences = [
     title: 'Culinary',
     to: '/culinary',
     image:
-      'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=1000',
+      '/table.png',
     features: [
       'Chef-driven seasonal menus',
       'Live-fire cooking',
