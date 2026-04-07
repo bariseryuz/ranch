@@ -14,10 +14,13 @@
 
 .main-header--solid {
   position: sticky;
+  top: 0;
   background: rgba(93, 58, 26, 0.97);
   backdrop-filter: blur(8px);
   color: var(--warm-ivory);
   border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  /* Tight bar on inner pages — large logo height was stretching this to ~30% of the viewport */
+  padding: 12px clamp(16px, 4vw, 48px);
 }
 
 .main-header--solid .logo {
@@ -36,6 +39,43 @@
   text-decoration: none;
   color: inherit;
   z-index: 102;
+}
+
+/* Logo must not shrink in flex row (was squeezing tiny between nav columns) */
+.logo.logo--mark {
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  max-width: min(960px, 92vw);
+}
+
+.logo__img {
+  display: block;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Home only: large mark over hero imagery */
+.main-header--overlay .logo.logo--mark {
+  max-width: min(960px, 92vw);
+}
+
+.main-header--overlay .logo__img {
+  height: clamp(120px, 22vh, 280px);
+  max-width: min(900px, 92vw);
+}
+
+/* Inner pages: compact bar — same asset, smaller display */
+.main-header--solid .logo.logo--mark {
+  max-width: min(360px, 48vw);
+}
+
+.main-header--solid .logo__img {
+  height: clamp(40px, 6vh, 64px);
+  max-width: min(280px, 42vw);
 }
 
 .logo-sub {
@@ -124,6 +164,23 @@
   .logo {
     flex: 1;
     text-align: center;
+  }
+
+  .logo.logo--mark {
+    flex: 1 1 auto;
+    max-width: none;
+  }
+
+  .main-header--overlay .logo__img {
+    height: clamp(72px, 14vh, 200px);
+    max-width: min(520px, 70vw);
+    margin: 0 auto;
+  }
+
+  .main-header--solid .logo__img {
+    height: clamp(32px, 5vh, 52px);
+    max-width: min(220px, 58vw);
+    margin: 0 auto;
   }
 
   .main-header__drawer {

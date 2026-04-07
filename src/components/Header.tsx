@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 
+const logoUrl = `${import.meta.env.BASE_URL}logo.png`;
+
 const Header = () => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
@@ -35,10 +37,20 @@ const Header = () => {
         <Link to="/culinary" onClick={close}>
           Culinary
         </Link>
+        <Link to="/tailored-gatherings" onClick={close}>
+          Gatherings
+        </Link>
       </div>
 
-      <Link to="/" className="logo" onClick={close}>
-        BRIGGS BROTHERS <span className="logo-sub">RANCH</span>
+      <Link to="/" className="logo logo--mark" onClick={close}>
+        <img
+          src={logoUrl}
+          alt="Briggs Brothers Ranch"
+          className="logo__img"
+          width={1800}
+          height={432}
+          decoding="async"
+        />
       </Link>
 
       <div className="nav-right nav-desktop">
@@ -66,6 +78,9 @@ const Header = () => {
           </Link>
           <Link to="/experiences" onClick={close}>
             Experiences
+          </Link>
+          <Link to="/tailored-gatherings" onClick={close}>
+            Tailored Gatherings
           </Link>
           <Link to="/corporate-retreats" onClick={close}>
             Corporate Retreats

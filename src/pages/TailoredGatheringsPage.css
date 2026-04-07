@@ -1,0 +1,208 @@
+/* Editorial cream page — background video only on home hero, not here */
+
+.tgp-page {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(4rem, 10vw, 6rem);
+  overflow: hidden;
+  background: linear-gradient(180deg, #f9f7f2 0%, var(--warm-ivory) 55%, #f2efe8 100%);
+}
+
+.tgp-page__content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 48px);
+}
+
+.tgp-page__header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+.tgp-page__title {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--saddle-brown);
+  margin: 0 0 1rem;
+  line-height: 1.15;
+}
+
+.tgp-page__subtitle {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Carousel */
+.tgp-carousel {
+  position: relative;
+}
+
+.tgp-carousel__track {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 8px 0 28px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(93, 58, 26, 0.25) transparent;
+}
+
+.tgp-carousel__track:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 6px;
+}
+
+.tgp-carousel__track::-webkit-scrollbar {
+  height: 5px;
+}
+
+.tgp-carousel__track::-webkit-scrollbar-thumb {
+  background: rgba(93, 58, 26, 0.2);
+  border-radius: 3px;
+}
+
+.tgp-carousel__slide {
+  flex: 0 0 clamp(260px, 32vw, 380px);
+  scroll-snap-align: start;
+}
+
+@media (max-width: 640px) {
+  .tgp-carousel__slide {
+    flex: 0 0 min(340px, 88vw);
+  }
+}
+
+.tgp-carousel__nav {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.tgp-carousel__nav:hover {
+  background: #000;
+}
+
+.tgp-carousel__nav--prev {
+  left: clamp(-8px, 0vw, 0px);
+}
+
+.tgp-carousel__nav--next {
+  right: clamp(-8px, 0vw, 0px);
+}
+
+@media (max-width: 900px) {
+  .tgp-carousel__nav {
+    width: 38px;
+    height: 38px;
+    font-size: 1.15rem;
+    top: 36%;
+  }
+
+  .tgp-carousel__nav--prev {
+    left: 4px;
+  }
+
+  .tgp-carousel__nav--next {
+    right: 4px;
+  }
+}
+
+/* Card: sharp corners, editorial flat */
+.tgp-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.tgp-card__image-wrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #e8e4dc;
+}
+
+.tgp-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.55s ease;
+}
+
+.tgp-card:hover .tgp-card__image {
+  transform: scale(1.03);
+}
+
+.tgp-card__label {
+  padding: 1.35rem 1.25rem 1.5rem;
+  background: #fff;
+}
+
+.tgp-card__title {
+  font-family: var(--font-secondary);
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+  text-align: left;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+.tgp-page__cta {
+  text-align: center;
+}
+
+.tgp-page__cta-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  font-family: var(--font-secondary);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--saddle-brown);
+  border: 1px solid var(--saddle-brown);
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+
+.tgp-page__cta-btn:hover {
+  background: var(--saddle-brown);
+  color: var(--warm-ivory);
+}

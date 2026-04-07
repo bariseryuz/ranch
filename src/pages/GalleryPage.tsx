@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { usePageMeta } from '../hooks/usePageMeta.ts';
 import PageHero from '../components/PageHero.tsx';
+import { galleryPImages } from '../data/galleryImages.ts';
 import './GalleryPage.css';
 
 const categories = [
@@ -14,40 +15,20 @@ const categories = [
 
 type Cat = (typeof categories)[number];
 
-const items: { src: string; cat: Exclude<Cat, 'All'> }[] = [
-  {
-    src: 'https://images.unsplash.com/photo-1533167649158-6d508895b980?q=80&w=1200',
-    cat: 'Ranch lifestyle',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200',
-    cat: 'Weddings',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200',
-    cat: 'Corporate retreats',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200',
-    cat: 'Dining',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200',
-    cat: 'Nature',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1200',
-    cat: 'Ranch lifestyle',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1200',
-    cat: 'Weddings',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1524813092629-3dbfa7110c73?q=80&w=1200',
-    cat: 'Nature',
-  },
+const CAT_ROTATION: Exclude<Cat, 'All'>[] = [
+  'Ranch lifestyle',
+  'Weddings',
+  'Corporate retreats',
+  'Dining',
+  'Nature',
 ];
+
+const items: { src: string; cat: Exclude<Cat, 'All'> }[] = galleryPImages.map(
+  (src, i) => ({
+    src,
+    cat: CAT_ROTATION[i % CAT_ROTATION.length],
+  })
+);
 
 export default function GalleryPage() {
   const [filter, setFilter] = useState<Cat>('All');

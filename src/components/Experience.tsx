@@ -1,5 +1,7 @@
 import './Experience.css';
 
+const cabinImage = `${import.meta.env.BASE_URL}Cabin.png`;
+
 const Experience = () => {
   return (
     <section id="experience" className="experience-section">
@@ -26,14 +28,16 @@ const Experience = () => {
             </ul>
           </div>
 
-          {/* Right Side: Image with Sage Green Accent */}
+          {/* Right Side: cabin photo + offset chocolate frame */}
           <div className="experience-image-container">
-            <div className="sage-accent-box"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1200" 
-              alt="Luxury Ranch Table" 
-              className="experience-img"
-            />
+            <div className="experience-frame-accent" aria-hidden="true" />
+            <div className="experience-image-inner">
+              <img
+                src={cabinImage}
+                alt="Briggs Brothers Ranch — cabin and grounds"
+                className="experience-img"
+              />
+            </div>
           </div>
 
         </div>

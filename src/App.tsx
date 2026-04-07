@@ -14,6 +14,7 @@ import Journal from './pages/Journal.tsx';
 import JournalPost from './pages/JournalPost.tsx';
 import PlanYourEvent from './pages/PlanYourEvent.tsx';
 import EventPlanner from './pages/EventPlanner.tsx';
+import TailoredGatheringsPage from './pages/TailoredGatheringsPage.tsx';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route element={<InnerLayout />}>
           <Route path="/the-ranch" element={<TheRanch />} />
           <Route path="/experiences" element={<ExperiencesHub />} />
+          <Route path="/tailored-gatherings" element={<TailoredGatheringsPage />} />
           <Route path="/corporate-retreats" element={<CorporateRetreats />} />
           <Route path="/luxury-weddings" element={<LuxuryWeddings />} />
           <Route path="/private-events" element={<PrivateEvents />} />

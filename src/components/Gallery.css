@@ -5,13 +5,15 @@
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 images in a row */
-  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
   padding: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .gallery-item {
-  height: 400px;
+  height: clamp(220px, 32vw, 360px);
   overflow: hidden;
 }
 

@@ -1,88 +1,141 @@
 .experience-section {
-  padding: 120px 0;
-  background-color: var(--warm-ivory); /* Using the variable from index.css */
+  padding: clamp(80px, 12vw, 120px) 0;
+  background-color: #f2e9e1;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 clamp(24px, 5vw, 40px);
 }
 
 .experience-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1.15fr;
   align-items: center;
-  gap: 80px;
+  gap: clamp(48px, 8vw, 80px);
+}
+
+@media (max-width: 900px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
 }
 
 .section-label {
   display: block;
   font-family: var(--font-secondary);
   text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 0.8rem;
-  color: var(--gold);
-  margin-bottom: 20px;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  color: #c5b396;
+  margin-bottom: 18px;
 }
 
 .experience-title {
-  font-size: 3rem;
-  color: var(--saddle-brown);
-  margin-bottom: 30px;
-  line-height: 1.2;
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #4a3728;
+  margin-bottom: 28px;
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .experience-description {
   font-family: var(--font-secondary);
-  line-height: 1.8;
-  color: #555;
+  line-height: 1.85;
+  color: #5c5348;
   font-size: 1.05rem;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
+  font-weight: 400;
 }
 
 .experience-list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .experience-list li {
   font-family: var(--font-secondary);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.85rem;
-  margin-bottom: 15px;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  margin-bottom: 14px;
   display: flex;
-  gap: 15px;
-  color: var(--saddle-brown);
+  gap: 12px;
+  align-items: baseline;
+  color: #4a3728;
 }
 
 .experience-list li span {
-  color: var(--gold);
+  color: #c5b396;
+  flex-shrink: 0;
+  font-weight: 400;
 }
 
-/* Image Section Styling */
+/* Layered frame: dark chocolate block behind, cabin photo offset down-left */
 .experience-image-container {
   position: relative;
-  padding: 40px;
+  overflow: visible;
+  min-height: 420px;
+  padding: 28px 20px 40px 8px;
 }
 
-.experience-img {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  position: relative;
-  z-index: 2;
-  box-shadow: 20px 20px 60px rgba(0,0,0,0.1);
-}
-
-.sage-accent-box {
+.experience-frame-accent {
   position: absolute;
   top: 0;
   right: 0;
-  width: 70%;
-  height: 80%;
-  background-color: var(--sage-green); /* Your Sage Green Accent */
+  width: 78%;
+  height: 88%;
+  background-color: #6f4e37;
   z-index: 1;
-  opacity: 0.4;
+  box-shadow: 0 24px 48px rgba(74, 55, 40, 0.12);
+}
+
+.experience-image-inner {
+  position: relative;
+  z-index: 2;
+  width: 92%;
+  max-width: 560px;
+  margin-left: 0;
+  margin-right: auto;
+  transform: translate(-6px, 36px);
+}
+
+.experience-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 380px;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 16px 20px 50px rgba(0, 0, 0, 0.14);
+}
+
+@media (max-width: 900px) {
+  .experience-image-container {
+    padding: 24px 12px 32px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .experience-frame-accent {
+    width: 82%;
+    height: 86%;
+    right: 8px;
+  }
+
+  .experience-image-inner {
+    width: 94%;
+    transform: translate(0, 28px);
+  }
+
+  .experience-img {
+    min-height: 320px;
+    max-height: 440px;
+  }
 }

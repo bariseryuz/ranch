@@ -1,16 +1,19 @@
 import { Link } from 'react-router-dom';
 import './Hero.css';
 
+const heroImageUrl = `${import.meta.env.BASE_URL}ran.png`;
+
 const Hero = () => {
   return (
     <section className="hero">
-      <div className="video-container">
-        <div className="video-overlay"></div>
+      <div className="hero-media" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1531315630201-bb15b9944a36?auto=format&fit=crop&q=80&w=2000"
-          alt="Ranch at golden hour — cinematic landscape"
-          className="hero-video-placeholder"
+          className="hero-bg-image"
+          src={heroImageUrl}
+          alt=""
+          fetchPriority="high"
         />
+        <div className="video-overlay" />
       </div>
 
       <div className="hero-content">

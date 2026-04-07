@@ -18,6 +18,7 @@ const Footer = () => {
             <h4>Discover</h4>
             <Link to="/the-ranch">The Ranch</Link>
             <Link to="/experiences">Experiences</Link>
+            <Link to="/tailored-gatherings">Tailored Gatherings</Link>
             <Link to="/culinary">Culinary</Link>
             <Link to="/accommodations">Accommodations</Link>
             <Link to="/gallery">Gallery</Link>
