@@ -24,8 +24,8 @@ const Home = () => {
       <main id="main-content">
         <Hero />
         <Experience />
-        <ExperienceGrid />
         <Culinary />
+        <ExperienceGrid />
         <Accommodations />
         <Gallery />
         <InquiryTeaser />
