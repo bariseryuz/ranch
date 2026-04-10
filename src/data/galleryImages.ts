@@ -15,3 +15,21 @@ const fallbackTail = [
 ];
 
 export const galleryPImages = [...pSeries, ...fallbackTail];
+
+/** Rotating category labels for captions / filters (aligned across home carousel + gallery page). */
+export const GALLERY_CATEGORIES = [
+  'Ranch lifestyle',
+  'Weddings',
+  'Corporate retreats',
+  'Dining',
+  'Nature',
+] as const;
+
+export type GalleryCategory = (typeof GALLERY_CATEGORIES)[number];
+
+export const gallerySlides: { src: string; category: GalleryCategory }[] = galleryPImages.map(
+  (src, i) => ({
+    src,
+    category: GALLERY_CATEGORIES[i % GALLERY_CATEGORIES.length],
+  })
+);

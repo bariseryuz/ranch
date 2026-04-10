@@ -3,6 +3,7 @@ import Home from './pages/Home.tsx';
 import InnerLayout from './components/InnerLayout.tsx';
 import ConciergeChat from './components/ConciergeChat.tsx';
 import TheRanch from './pages/TheRanch.tsx';
+import LegacyPage from './pages/LegacyPage.tsx';
 import ExperiencesHub from './pages/ExperiencesHub.tsx';
 import CorporateRetreats from './pages/CorporateRetreats.tsx';
 import LuxuryWeddings from './pages/LuxuryWeddings.tsx';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route element={<InnerLayout />}>
           <Route path="/the-ranch" element={<TheRanch />} />
+          <Route path="/legacy" element={<LegacyPage />} />
           <Route path="/experiences" element={<ExperiencesHub />} />
           <Route path="/tailored-gatherings" element={<TailoredGatheringsPage />} />
           <Route path="/corporate-retreats" element={<CorporateRetreats />} />

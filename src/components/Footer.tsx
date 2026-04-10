@@ -17,6 +17,7 @@ const Footer = () => {
           <div>
             <h4>Discover</h4>
             <Link to="/the-ranch">The Ranch</Link>
+            <Link to="/legacy">Legacy</Link>
             <Link to="/experiences">Experiences</Link>
             <Link to="/tailored-gatherings">Tailored Gatherings</Link>
             <Link to="/culinary">Culinary</Link>

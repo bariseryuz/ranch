@@ -4,7 +4,6 @@ import Footer from '../components/Footer.tsx';
 import Hero from '../components/Hero.tsx';
 import Experience from '../components/Experience.tsx';
 import ExperienceGrid from '../components/ExperienceGrid.tsx';
-import Culinary from '../components/Culinary.tsx';
 import Accommodations from '../components/Accommodations.tsx';
 import Gallery from '../components/Gallery.tsx';
 import InquiryTeaser from '../components/InquiryTeaser.tsx';
@@ -24,7 +23,6 @@ const Home = () => {
       <main id="main-content">
         <Hero />
         <Experience />
-        <Culinary />
         <ExperienceGrid />
         <Accommodations />
         <Gallery />

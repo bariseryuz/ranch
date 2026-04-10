@@ -101,6 +101,60 @@
   justify-content: flex-start;
 }
 
+/* Experiences → Culinary (desktop) */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown__panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 10px;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s;
+  pointer-events: none;
+  z-index: 110;
+}
+
+.nav-dropdown:hover .nav-dropdown__panel,
+.nav-dropdown:focus-within .nav-dropdown__panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.nav-dropdown__panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+.nav-dropdown__item {
+  display: block;
+  padding: 0.65rem 1.25rem;
+  background: rgba(45, 28, 12, 0.98);
+  border: 1px solid rgba(197, 160, 89, 0.28);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.main-header--solid .nav-dropdown__item {
+  background: rgba(55, 35, 18, 0.99);
+}
+
+.nav-dropdown__item:hover {
+  color: var(--gold) !important;
+}
+
 .nav-right {
   justify-content: flex-end;
 }
@@ -210,5 +264,12 @@
     font-size: 0.85rem;
     letter-spacing: 0.15em;
     color: var(--warm-ivory);
+  }
+
+  .main-header__mobile-nav--nested {
+    padding-left: 1.5rem;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.12em !important;
+    opacity: 0.92;
   }
 }

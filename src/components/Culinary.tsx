@@ -35,6 +35,9 @@ const Culinary = () => {
               <h3>Chef’s Table Experiences</h3>
               <p>An intimate front-row seat to the artistry of the kitchen.</p>
             </div>
+            <p className="culinary-sister-note">
+              Culinary Experience provided by our sister company &ldquo;1311Events&rdquo;
+            </p>
           </div>
 
           {/* Right: Large Vertical Image */}

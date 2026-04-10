@@ -9,6 +9,10 @@
   max-width: 960px;
 }
 
+.page-section--experiences-intro {
+  padding-bottom: clamp(3rem, 8vw, 5rem);
+}
+
 .page-section h2 {
   font-size: clamp(1.5rem, 3vw, 2rem);
   margin: 0 0 1rem;
@@ -100,4 +104,64 @@
 .cta-row a.secondary:hover {
   background: var(--saddle-brown);
   color: var(--warm-ivory);
+}
+
+/* Experiences hub — three cards: breathing room from Culinary + footer */
+.experiences-hub-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(2rem, 5vw, 3rem);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 9vw, 6rem) clamp(1.75rem, 6vw, 3.5rem)
+    clamp(4.5rem, 11vw, 7rem);
+  box-sizing: border-box;
+}
+
+.experiences-hub-cards__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(93, 58, 26, 0.12);
+  overflow: hidden;
+  border-radius: 2px;
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.experiences-hub-cards__link:hover {
+  box-shadow: 0 16px 48px rgba(45, 28, 12, 0.1);
+}
+
+.experiences-hub-cards__link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.experiences-hub-cards__img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.experiences-hub-cards__body {
+  padding: clamp(1.35rem, 3vw, 1.85rem) clamp(1.35rem, 3vw, 1.75rem)
+    clamp(1.5rem, 3vw, 2rem);
+}
+
+.experiences-hub-cards__title {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--font-primary);
+}
+
+.experiences-hub-cards__copy {
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.65;
+  font-size: 0.95rem;
+  opacity: 0.92;
 }

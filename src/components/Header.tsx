@@ -31,12 +31,24 @@ const Header = () => {
         <Link to="/the-ranch" onClick={close}>
           The Ranch
         </Link>
-        <Link to="/experiences" onClick={close}>
-          Experiences
+        <Link to="/legacy" onClick={close}>
+          Legacy
         </Link>
-        <Link to="/culinary" onClick={close}>
-          Culinary
-        </Link>
+        <div className="nav-dropdown">
+          <Link
+            to="/experiences"
+            className="nav-dropdown__trigger"
+            aria-haspopup="menu"
+            onClick={close}
+          >
+            Experiences
+          </Link>
+          <div className="nav-dropdown__panel" role="menu">
+            <Link to="/culinary" className="nav-dropdown__item" role="menuitem" onClick={close}>
+              Culinary
+            </Link>
+          </div>
+        </div>
         <Link to="/tailored-gatherings" onClick={close}>
           Gatherings
         </Link>
@@ -76,8 +88,14 @@ const Header = () => {
           <Link to="/the-ranch" onClick={close}>
             The Ranch
           </Link>
+          <Link to="/legacy" onClick={close}>
+            Legacy
+          </Link>
           <Link to="/experiences" onClick={close}>
             Experiences
+          </Link>
+          <Link to="/culinary" className="main-header__mobile-nav--nested" onClick={close}>
+            Culinary
           </Link>
           <Link to="/tailored-gatherings" onClick={close}>
             Tailored Gatherings
@@ -90,9 +108,6 @@ const Header = () => {
           </Link>
           <Link to="/private-events" onClick={close}>
             Private Events
-          </Link>
-          <Link to="/culinary" onClick={close}>
-            Culinary
           </Link>
           <Link to="/accommodations" onClick={close}>
             Accommodations

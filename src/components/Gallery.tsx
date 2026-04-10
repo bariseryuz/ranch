@@ -1,23 +1,23 @@
 import { Link } from 'react-router-dom';
-import { galleryPImages } from '../data/galleryImages.ts';
+import { gallerySlides } from '../data/galleryImages.ts';
+import GalleryCarousel from './GalleryCarousel';
 import './Gallery.css';
 
 const Gallery = () => {
   return (
     <section id="gallery" className="gallery-section">
-      <div className="gallery-grid">
-        {galleryPImages.map((img, i) => (
-          <div key={img} className="gallery-item">
-            <img src={img} alt={`Gallery ${i + 1}`} />
-          </div>
-        ))}
+      <div className="gallery-section__header">
+        <span className="gallery-section__eyebrow">Gallery</span>
+        <h2 className="gallery-section__title">Scenes from the ranch</h2>
+        <p className="gallery-section__lede">
+          A living album — pause on hover, use arrows, or explore the full collection.
+        </p>
       </div>
+
+      <GalleryCarousel slides={gallerySlides} />
+
       <div className="gallery-footer">
-        <Link
-          to="/gallery"
-          className="btn-secondary"
-          style={{ color: 'var(--saddle-brown)', borderColor: 'var(--saddle-brown)' }}
-        >
+        <Link to="/gallery" className="gallery-footer__btn">
           View Full Gallery
         </Link>
       </div>

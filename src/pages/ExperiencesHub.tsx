@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta.ts';
 import PageHero from '../components/PageHero.tsx';
+import Culinary from '../components/Culinary.tsx';
 import '../styles/editorial.css';
 
 const cards = [
@@ -43,40 +44,20 @@ export default function ExperiencesHub() {
         image="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2000"
         imageAlt="Ranch landscape"
       />
-      <div className="page-section page-section--wide">
+      <div className="page-section page-section--wide page-section--experiences-intro">
         <p>
           The ranch sells a lifestyle—privacy, cinematic landscapes, and hospitality that feels
           bespoke. Choose a path below; each experience is designed as a full-property immersion.
         </p>
       </div>
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '2rem',
-          maxWidth: '1100px',
-          margin: '0 auto 4rem',
-          padding: '0 1.5rem',
-        }}
-      >
+      <Culinary />
+      <div className="experiences-hub-cards">
         {cards.map((c) => (
-          <Link
-            key={c.to}
-            to={c.to}
-            style={{
-              textDecoration: 'none',
-              color: 'inherit',
-              background: 'rgba(255,255,255,0.5)',
-              border: '1px solid rgba(93,58,26,0.12)',
-              overflow: 'hidden',
-            }}
-          >
-            <img src={c.image} alt="" style={{ width: '100%', height: '200px', objectFit: 'cover' }} />
-            <div style={{ padding: '1.5rem' }}>
-              <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.1rem' }}>{c.title}</h3>
-              <p style={{ margin: 0, fontWeight: 300, lineHeight: 1.6, fontSize: '0.95rem' }}>
-                {c.copy}
-              </p>
+          <Link key={c.to} to={c.to} className="experiences-hub-cards__link">
+            <img className="experiences-hub-cards__img" src={c.image} alt="" />
+            <div className="experiences-hub-cards__body">
+              <h3 className="experiences-hub-cards__title">{c.title}</h3>
+              <p className="experiences-hub-cards__copy">{c.copy}</p>
             </div>
           </Link>
         ))}
