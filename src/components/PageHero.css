@@ -18,6 +18,16 @@
   object-fit: cover;
 }
 
+.page-hero__img[src*='eventsetup.png'] {
+  object-position: center 74%;
+}
+
+@media (max-width: 768px) {
+  .page-hero__img[src*='eventsetup.png'] {
+    object-position: center 70%;
+  }
+}
+
 .page-hero__overlay {
   position: absolute;
   inset: 0;

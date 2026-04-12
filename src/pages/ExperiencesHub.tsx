@@ -4,20 +4,20 @@ import PageHero from '../components/PageHero.tsx';
 import Culinary from '../components/Culinary.tsx';
 import '../styles/editorial.css';
 
+const base = import.meta.env.BASE_URL;
+
 const cards = [
   {
     to: '/corporate-retreats',
     title: 'Corporate Retreats',
     copy: 'Leadership programs, team building, executive summits, and company celebrations.',
-    image:
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200',
+    image: `${base}eventsetup.png`,
   },
   {
     to: '/luxury-weddings',
     title: 'Luxury Weddings',
     copy: 'Exclusive destination weddings—ceremony sites, tented receptions, rehearsal dinners.',
-    image:
-      'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1200',
+    image: `${base}inte.png`,
   },
   {
     to: '/private-events',

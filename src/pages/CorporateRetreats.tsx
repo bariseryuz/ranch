@@ -3,6 +3,8 @@ import { usePageMeta } from '../hooks/usePageMeta.ts';
 import PageHero from '../components/PageHero.tsx';
 import '../styles/editorial.css';
 
+const base = import.meta.env.BASE_URL;
+
 export default function CorporateRetreats() {
   usePageMeta({
     title: 'Corporate Retreats',
@@ -16,7 +18,7 @@ export default function CorporateRetreats() {
       <PageHero
         title="Corporate Retreats"
         subtitle="Alignment · Focus · Discretion"
-        image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2000"
+        image={`${base}eventsetup.png`}
         imageAlt="Corporate team at the ranch"
       />
       <div className="page-columns">

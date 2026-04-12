@@ -8,8 +8,7 @@ const experiences = [
   {
     title: 'Corporate Retreats',
     to: '/corporate-retreats',
-    image:
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1000',
+    image: `${base}eventsetup.png`,
     features: [
       'Leadership retreats',
       'Team building',
@@ -21,8 +20,7 @@ const experiences = [
   {
     title: 'Luxury Weddings',
     to: '/luxury-weddings',
-    image:
-      'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000',
+    image: `${base}inte.png`,
     features: [
       'Scenic ceremony locations',
       'Luxury tented receptions',

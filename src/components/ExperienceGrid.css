@@ -144,8 +144,17 @@
   transition: transform 0.6s ease;
 }
 
+.card-image[src*='eventsetup.png'] {
+  object-fit: cover;
+  object-position: center 72%;
+}
+
 .experience-card:hover .card-image {
   transform: scale(1.05);
+}
+
+.experience-card:hover .card-image[src*='eventsetup.png'] {
+  transform: none;
 }
 
 .card-overlay {

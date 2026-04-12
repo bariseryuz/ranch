@@ -28,11 +28,8 @@ const Header = () => {
       </button>
 
       <div className="nav-left nav-desktop">
-        <Link to="/the-ranch" onClick={close}>
-          The Ranch
-        </Link>
-        <Link to="/legacy" onClick={close}>
-          Legacy
+        <Link to="/" onClick={close}>
+          Home
         </Link>
         <div className="nav-dropdown">
           <Link
@@ -44,13 +41,30 @@ const Header = () => {
             Experiences
           </Link>
           <div className="nav-dropdown__panel" role="menu">
+            <Link to="/the-ranch" className="nav-dropdown__item" role="menuitem" onClick={close}>
+              The Ranch
+            </Link>
+            <Link to="/legacy" className="nav-dropdown__item" role="menuitem" onClick={close}>
+              Legacy
+            </Link>
             <Link to="/culinary" className="nav-dropdown__item" role="menuitem" onClick={close}>
               Culinary
             </Link>
+            <Link
+              to="/tailored-gatherings"
+              className="nav-dropdown__item"
+              role="menuitem"
+              onClick={close}
+            >
+              Gatherings
+            </Link>
           </div>
         </div>
-        <Link to="/tailored-gatherings" onClick={close}>
-          Gatherings
+        <Link to="/gallery" onClick={close}>
+          Gallery
+        </Link>
+        <Link to="/journal" onClick={close}>
+          Journal
         </Link>
       </div>
 
@@ -69,12 +83,6 @@ const Header = () => {
         <Link to="/accommodations" onClick={close}>
           Stay
         </Link>
-        <Link to="/gallery" onClick={close}>
-          Gallery
-        </Link>
-        <Link to="/journal" onClick={close}>
-          Journal
-        </Link>
         <Link to="/plan-your-event" className="cta-link" onClick={close}>
           Plan Your Event
         </Link>
@@ -85,20 +93,20 @@ const Header = () => {
           <Link to="/" onClick={close}>
             Home
           </Link>
-          <Link to="/the-ranch" onClick={close}>
-            The Ranch
-          </Link>
-          <Link to="/legacy" onClick={close}>
-            Legacy
-          </Link>
           <Link to="/experiences" onClick={close}>
             Experiences
+          </Link>
+          <Link to="/the-ranch" className="main-header__mobile-nav--nested" onClick={close}>
+            The Ranch
+          </Link>
+          <Link to="/legacy" className="main-header__mobile-nav--nested" onClick={close}>
+            Legacy
           </Link>
           <Link to="/culinary" className="main-header__mobile-nav--nested" onClick={close}>
             Culinary
           </Link>
-          <Link to="/tailored-gatherings" onClick={close}>
-            Tailored Gatherings
+          <Link to="/tailored-gatherings" className="main-header__mobile-nav--nested" onClick={close}>
+            Gatherings
           </Link>
           <Link to="/corporate-retreats" onClick={close}>
             Corporate Retreats
