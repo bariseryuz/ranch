@@ -146,9 +146,14 @@
 }
 
 .experiences-hub-cards__img[src*='eventsetup.png'] {
-  object-fit: contain;
-  object-position: center top;
-  background: #2b1b11;
+  object-fit: cover;
+  object-position: center 72%;
+}
+
+@media (max-width: 640px) {
+  .experiences-hub-cards__img[src*='eventsetup.png'] {
+    object-position: center 68%;
+  }
 }
 
 .experiences-hub-cards__body {

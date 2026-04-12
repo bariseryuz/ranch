@@ -149,6 +149,12 @@
   object-position: center 72%;
 }
 
+@media (max-width: 640px) {
+  .card-image[src*='eventsetup.png'] {
+    object-position: center 68%;
+  }
+}
+
 .experience-card:hover .card-image {
   transform: scale(1.05);
 }
