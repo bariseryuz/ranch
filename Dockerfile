@@ -8,6 +8,8 @@ RUN npm ci
 
 COPY . .
 ENV VITE_BASE=/
+# Same-origin concierge route served by server/index.js (do not put GEMINI_API_KEY here)
+ENV VITE_CONCIERGE_API_URL=/api/concierge
 ENV NODE_OPTIONS=--max-old-space-size=4096
 RUN npm run build
 
@@ -19,6 +21,7 @@ COPY package.json package-lock.json ./
 RUN npm ci --omit=dev && npm cache clean --force
 
 COPY --from=builder /app/dist ./dist
+COPY server ./server
 
 EXPOSE 3000
 ENV PORT=3000

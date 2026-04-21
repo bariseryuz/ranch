@@ -1,12 +1,16 @@
 import { useState, useRef, useEffect } from 'react';
+import { fetchConciergeReply } from '../utils/conciergeApi.ts';
 import { getConciergeReply } from '../utils/conciergeResponses.ts';
 import './ConciergeChat.css';
 
 type Msg = { role: 'user' | 'assistant'; text: string };
 
+const conciergeApiUrl = import.meta.env.VITE_CONCIERGE_API_URL?.trim();
+
 export default function ConciergeChat() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([
     {
       role: 'assistant',
@@ -20,14 +24,34 @@ export default function ConciergeChat() {
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, open]);
 
-  const send = () => {
+  const send = async () => {
     const t = input.trim();
-    if (!t) return;
-    setMessages((m) => [...m, { role: 'user', text: t }]);
+    if (!t || loading) return;
+
+    const userMsg: Msg = { role: 'user', text: t };
+    const threadAfterUser = [...messages, userMsg];
+
+    setMessages((m) => [...m, userMsg]);
     setInput('');
-    setTimeout(() => {
-      setMessages((m) => [...m, { role: 'assistant', text: getConciergeReply(t) }]);
-    }, 400);
+    setLoading(true);
+
+    const fallbackError =
+      'Sorry — we could not reach the concierge service. Please try again or email concierge@briggsbros.com.';
+
+    try {
+      let reply: string;
+      if (conciergeApiUrl) {
+        reply = await fetchConciergeReply(conciergeApiUrl, threadAfterUser);
+      } else {
+        await new Promise((r) => setTimeout(r, 350));
+        reply = getConciergeReply(t);
+      }
+      setMessages((m) => [...m, { role: 'assistant', text: reply }]);
+    } catch {
+      setMessages((m) => [...m, { role: 'assistant', text: fallbackError }]);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -44,7 +68,11 @@ export default function ConciergeChat() {
         <div className="concierge__panel" role="dialog" aria-label="AI concierge chat">
           <div className="concierge__head">
             <span>AI Concierge</span>
-            <small>Rule-based · connect API later</small>
+            <small>
+              {conciergeApiUrl
+                ? 'Connected to your concierge API'
+                : 'Rule-based offline — set VITE_CONCIERGE_API_URL for live AI'}
+            </small>
           </div>
           <div className="concierge__messages">
             {messages.map((msg, i) => (
@@ -58,12 +86,14 @@ export default function ConciergeChat() {
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), send())}
+              onKeyDown={(e) =>
+                e.key === 'Enter' && !loading && (e.preventDefault(), void send())
+              }
               placeholder="Ask about the ranch…"
               aria-label="Message"
             />
-            <button type="button" onClick={send}>
-              Send
+            <button type="button" onClick={() => void send()} disabled={loading}>
+              {loading ? '…' : 'Send'}
             </button>
           </div>
         </div>

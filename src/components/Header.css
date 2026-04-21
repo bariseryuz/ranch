@@ -64,8 +64,8 @@
 }
 
 .main-header--overlay .logo__img {
-  height: clamp(120px, 22vh, 280px);
-  max-width: min(900px, 92vw);
+  height: clamp(160px, 26vh, 360px);
+  max-width: min(1040px, 92vw);
 }
 
 /* Inner pages: compact bar — same asset, smaller display */
@@ -226,8 +226,8 @@
   }
 
   .main-header--overlay .logo__img {
-    height: clamp(72px, 14vh, 200px);
-    max-width: min(520px, 70vw);
+    height: clamp(96px, 18vh, 240px);
+    max-width: min(640px, 78vw);
     margin: 0 auto;
   }
 

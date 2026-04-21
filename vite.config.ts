@@ -10,4 +10,10 @@ export default defineConfig(({ mode }) => ({
       ? (process.env.VITE_BASE ?? '/')
       : '/',
   plugins: [react()],
+  server: {
+    proxy: {
+      // Gemini concierge API (run `npm run dev:api` in another terminal)
+      '/api': 'http://127.0.0.1:3000',
+    },
+  },
 }))
