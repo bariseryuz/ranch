@@ -68,11 +68,6 @@ export default function ConciergeChat() {
         <div className="concierge__panel" role="dialog" aria-label="AI concierge chat">
           <div className="concierge__head">
             <span>AI Concierge</span>
-            <small>
-              {conciergeApiUrl
-                ? 'Connected to your concierge API'
-                : 'Rule-based offline — set VITE_CONCIERGE_API_URL for live AI'}
-            </small>
           </div>
           <div className="concierge__messages">
             {messages.map((msg, i) => (
