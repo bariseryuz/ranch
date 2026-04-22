@@ -58,7 +58,8 @@ export async function answerConcierge({
   const retriever = store.asRetriever(topK);
 
   const question = latest || history.split('\n').slice(-1)[0] || 'Hello';
-  const docs = await retriever.getRelevantDocuments(question);
+  // LangChain v1 retrievers are Runnables; use invoke() to fetch documents.
+  const docs = await retriever.invoke(question);
   const context = docs
     .map((d, i) => {
       const src = d.metadata?.source ? ` (${d.metadata.source})` : '';
