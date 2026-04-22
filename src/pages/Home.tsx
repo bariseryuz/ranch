@@ -7,6 +7,8 @@ import ExperienceGrid from '../components/ExperienceGrid.tsx';
 import Accommodations from '../components/Accommodations.tsx';
 import Gallery from '../components/Gallery.tsx';
 import InquiryTeaser from '../components/InquiryTeaser.tsx';
+import TestimonialsSlider from '../components/TestimonialsSlider.tsx';
+import { testimonials } from '../data/testimonials.ts';
 
 const Home = () => {
   usePageMeta({
@@ -26,6 +28,7 @@ const Home = () => {
         <ExperienceGrid />
         <Accommodations />
         <Gallery />
+        <TestimonialsSlider items={testimonials} />
         <InquiryTeaser />
       </main>
       <Footer />
