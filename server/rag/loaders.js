@@ -1,8 +1,8 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import { PDFLoader } from '@langchain/community/document_loaders/fs/pdf';
-import { TextLoader } from '@langchain/community/document_loaders/fs/text';
+import pdf from 'pdf-parse';
+import { Document } from '@langchain/core/documents';
 
 async function listFilesRecursive(rootPath) {
   const out = [];
@@ -29,23 +29,25 @@ async function loadOne(filePath) {
   const ext = path.extname(filePath).toLowerCase();
 
   if (ext === '.pdf') {
-    const loader = new PDFLoader(filePath, {
-      splitPages: true,
-    });
-    const docs = await loader.load();
-    for (const d of docs) {
-      d.metadata = { ...(d.metadata ?? {}), source: filePath, type: 'pdf' };
-    }
-    return docs;
+    const buf = await fs.readFile(filePath);
+    const data = await pdf(buf);
+    const text = typeof data?.text === 'string' ? data.text : '';
+    return [
+      new Document({
+        pageContent: text,
+        metadata: { source: filePath, type: 'pdf' },
+      }),
+    ];
   }
 
   if (ext === '.txt' || ext === '.md') {
-    const loader = new TextLoader(filePath);
-    const docs = await loader.load();
-    for (const d of docs) {
-      d.metadata = { ...(d.metadata ?? {}), source: filePath, type: 'text' };
-    }
-    return docs;
+    const text = await fs.readFile(filePath, 'utf8');
+    return [
+      new Document({
+        pageContent: text,
+        metadata: { source: filePath, type: 'text' },
+      }),
+    ];
   }
 
   return [];
