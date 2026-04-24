@@ -1,6 +1,7 @@
 /** Rule-based concierge (swap for API / OpenAI when backend is ready). */
 export function getConciergeReply(message: string): string {
   const q = message.toLowerCase().trim();
+  const inquiryLink = 'Plan your event: /plan-your-event';
 
   if (/capacity|how many guests|accommodat|sleep|rooms?/i.test(q)) {
     return (
@@ -27,7 +28,7 @@ export function getConciergeReply(message: string): string {
   if (/cost|price|budget|how much/i.test(q)) {
     return (
       'Investment varies by season, guest count, and buyout scope. ' +
-      'Share your event type and approximate guest count via Plan Your Event, and our team will respond with a tailored range.'
+      `Share your event type and approximate guest count and our team will respond with a tailored range. ${inquiryLink}`
     );
   }
   if (/dining|chef|wine|culinary|food/i.test(q)) {
@@ -39,7 +40,7 @@ export function getConciergeReply(message: string): string {
   if (/where|location|address|how to get/i.test(q)) {
     return (
       'The ranch is a private estate; exact location and arrival details are shared with confirmed guests. ' +
-      'Submit an inquiry and our team will coordinate travel and privacy protocols.'
+      `Submit an inquiry and our team will coordinate travel and privacy protocols. ${inquiryLink}`
     );
   }
   if (/hello|hi|hey|^$/.test(q) || q.length < 3) {
@@ -51,6 +52,6 @@ export function getConciergeReply(message: string): string {
 
   return (
     'Thank you for your message. For detailed availability, our concierge reviews each inquiry personally. ' +
-    'Use Plan Your Event to share dates and guest count, or ask about capacity, weddings, or corporate programs.'
+    `Use Plan Your Event to share dates and guest count, or ask about capacity, weddings, or corporate programs. ${inquiryLink}`
   );
 }

@@ -25,4 +25,5 @@ We can have set up provided for weddings or any other events required. Clients s
 
 
 
-Understand the term events anything that is spesfically designed for a group of people ca be called event we can host up to 100 people.
+Understand the term events anything that is spesfically designed for a group of people ca be called event we can host up to 100 people. If the client asks for more stated that we can have max 100 people at a time 
+
