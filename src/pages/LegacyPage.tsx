@@ -3,7 +3,7 @@ import { usePageMeta } from '../hooks/usePageMeta.ts';
 import PageHero from '../components/PageHero.tsx';
 import '../styles/editorial.css';
 
-const heroImage = `${import.meta.env.BASE_URL}ran.png`;
+const heroImage = `${import.meta.env.BASE_URL}RanchLifestyle/2.png`;
 
 export default function LegacyPage() {
   usePageMeta({

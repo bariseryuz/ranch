@@ -13,7 +13,7 @@ export const RAG = {
   embeddingModel: () =>
     getEnv('GEMINI_EMBEDDING_MODEL', { defaultValue: 'gemini-embedding-001' }),
   pineconeApiKey: () => getEnv('PINECONE_API_KEY', { required: true }),
-  pineconeIndex: () => getEnv('PINECONE_INDEX', { required: true }),
+  pineconeIndex: () => getEnv('PINECONE_INDEX', { required: true })?.toLowerCase(),
   pineconeNamespace: () => getEnv('PINECONE_NAMESPACE', { defaultValue: 'default' }),
   knowledgePath: () => getEnv('RAG_KNOWLEDGE_PATH', { defaultValue: 'server/rag/knowledge' }),
   chunkSize: 1000,

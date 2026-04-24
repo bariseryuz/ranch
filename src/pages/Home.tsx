@@ -24,11 +24,11 @@ const Home = () => {
       <Header />
       <main id="main-content">
         <Hero />
+        <TestimonialsSlider items={testimonials} />
         <Experience />
         <ExperienceGrid />
         <Accommodations />
         <Gallery />
-        <TestimonialsSlider items={testimonials} />
         <InquiryTeaser />
       </main>
       <Footer />
