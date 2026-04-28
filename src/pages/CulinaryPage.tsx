@@ -17,7 +17,7 @@ export default function CulinaryPage() {
       <PageHero
         title="The Culinary Experience"
         subtitle="Memoirs · Live fire · Seasonal craft"
-        image="/table.png"
+        image="/Dining/dinningcurrent.png"
         imageAlt="Dining at Briggs Brothers Ranch"
       />
       <article className="page-section">

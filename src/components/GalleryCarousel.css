@@ -152,10 +152,14 @@
 .gallery-carousel__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   filter: grayscale(12%);
   animation: galleryImgReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.gallery-carousel__img-wrap {
+  background: linear-gradient(180deg, rgba(93, 58, 26, 0.08), rgba(245, 242, 232, 0.22));
 }
 
 .gallery-carousel__frame:hover .gallery-carousel__img {

@@ -36,9 +36,21 @@ const BY_CATEGORY: Record<GalleryCategory, string[]> = {
     asset('CorporateRetreats/4.PNG'),
     asset('CorporateRetreats/5.PNG'),
   ],
-  Glamping: [asset('Glamping/1.PNG')],
-  Dining: [asset('Dining/1.png'), asset('Dining/2.png'), asset('Dining/3.PNG'), asset('Dining/4.PNG')],
-  Nature: [asset('Nature/1.png'), asset('Nature/2.PNG'), asset('Nature/3.PNG'), asset('Nature/4.PNG')],
+  Glamping: [asset('Glamping/Glamping Edited.PNG')],
+  Dining: [
+    asset('Dining/1.png'),
+    asset('Dining/dinningcurrent.png'),
+    asset('Dining/3.PNG'),
+    asset('Dining/4.PNG'),
+    asset('Dining/beer.jpeg'),
+  ],
+  Nature: [
+    asset('Nature/1.png'),
+    asset('Nature/2.PNG'),
+    asset('Nature/3.PNG'),
+    asset('Nature/4.PNG'),
+    asset('Nature/Need to add it .jpg'),
+  ],
 };
 
 export const gallerySlides: { src: string; category: GalleryCategory }[] = GALLERY_CATEGORIES.flatMap(

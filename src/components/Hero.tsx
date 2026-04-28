@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Hero.css';
 
-const heroImageUrl = `${import.meta.env.BASE_URL}RanchLifestyle/3.png`;
+const heroImageUrl = `${import.meta.env.BASE_URL}Nature/Hero%20pic%20ready%20to%20deploy.png`;
 
 const Hero = () => {
   return (

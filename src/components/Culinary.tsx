@@ -43,7 +43,7 @@ const Culinary = () => {
           {/* Right: Large Vertical Image */}
           <div className="culinary-image">
             <img
-              src="/table.png"
+              src="/Dining/dinningcurrent.png"
               alt="Dining at Briggs Brothers Ranch"
             />
             <div className="image-caption">Live-Fire Excellence</div>
