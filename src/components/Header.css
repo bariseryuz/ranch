@@ -6,10 +6,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px clamp(20px, 4vw, 60px);
   box-sizing: border-box;
   z-index: 100;
   color: white;
+  /* Notched phones: never smaller than existing padding; desktop env() is 0 — unchanged */
+  padding-top: max(30px, env(safe-area-inset-top, 0px));
+  padding-bottom: 30px;
+  padding-left: max(clamp(20px, 4vw, 60px), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(20px, 4vw, 60px), env(safe-area-inset-right, 0px));
 }
 
 .main-header--solid {
@@ -20,7 +24,10 @@
   color: var(--warm-ivory);
   border-bottom: 1px solid rgba(197, 160, 89, 0.2);
   /* Tight bar on inner pages — large logo height was stretching this to ~30% of the viewport */
-  padding: 12px clamp(16px, 4vw, 48px);
+  padding-top: max(12px, env(safe-area-inset-top, 0px));
+  padding-bottom: 12px;
+  padding-left: max(clamp(16px, 4vw, 48px), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(16px, 4vw, 48px), env(safe-area-inset-right, 0px));
 }
 
 .main-header--solid .logo {
@@ -80,7 +87,10 @@
 
 /* Selected inner pages: 2× solid-bar logo size */
 .main-header--solid.main-header--large-logo {
-  padding: 18px clamp(16px, 4vw, 48px);
+  padding-top: max(18px, env(safe-area-inset-top, 0px));
+  padding-bottom: 18px;
+  padding-left: max(clamp(16px, 4vw, 48px), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(16px, 4vw, 48px), env(safe-area-inset-right, 0px));
 }
 
 .main-header--solid.main-header--large-logo .logo.logo--mark {
@@ -262,7 +272,10 @@
     position: fixed;
     inset: 0;
     top: 0;
-    padding: 100px 2rem 2rem;
+    padding-top: max(100px, calc(72px + env(safe-area-inset-top, 0px)));
+    padding-bottom: max(2rem, env(safe-area-inset-bottom, 0px));
+    padding-left: max(2rem, env(safe-area-inset-left, 0px));
+    padding-right: max(2rem, env(safe-area-inset-right, 0px));
     background: rgba(45, 28, 12, 0.98);
     transform: translateX(-100%);
     transition: transform 0.3s ease;

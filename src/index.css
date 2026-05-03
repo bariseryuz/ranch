@@ -20,6 +20,9 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -29,6 +32,13 @@ body {
   color: var(--saddle-brown);
   font-family: var(--font-secondary);
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-width: 0;
 }
 
 *,
@@ -39,6 +49,14 @@ body {
 
 .site-main {
   min-height: 40vh;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Keep raster/video from forcing horizontal scroll on narrow devices */
+img,
+video {
+  max-width: 100%;
 }
 
 h1, h2, h3 {
