@@ -4,16 +4,35 @@ import './Header.css';
 
 const logoUrl = `${import.meta.env.BASE_URL}logo.png`;
 
+/** Inner routes where the header mark is shown at 2× the default solid-bar size */
+const LARGE_LOGO_PATHS = new Set([
+  '/experiences',
+  '/the-ranch',
+  '/legacy',
+  '/culinary',
+  '/tailored-gatherings',
+  '/gallery',
+  '/accommodations',
+  '/plan-your-event',
+]);
+
+function isLargeLogoRoute(pathname: string) {
+  if (LARGE_LOGO_PATHS.has(pathname)) return true;
+  if (pathname === '/journal' || pathname.startsWith('/journal/')) return true;
+  return false;
+}
+
 const Header = () => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const isHome = pathname === '/';
+  const largeLogo = !isHome && isLargeLogoRoute(pathname);
 
   const close = () => setOpen(false);
 
   return (
     <header
-      className={`main-header ${isHome ? 'main-header--overlay' : 'main-header--solid'}`}
+      className={`main-header ${isHome ? 'main-header--overlay' : 'main-header--solid'} ${largeLogo ? 'main-header--large-logo' : ''}`}
     >
       <button
         type="button"
@@ -126,7 +145,7 @@ const Header = () => {
           <Link to="/journal" onClick={close}>
             Journal
           </Link>
-          <Link to="/event-planner" onClick={close}>
+          <Link to="/plan-your-event?tab=ai" onClick={close}>
             AI Event Planner
           </Link>
           <Link to="/plan-your-event" className="cta-link" onClick={close}>

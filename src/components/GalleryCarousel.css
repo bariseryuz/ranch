@@ -149,7 +149,7 @@
   }
 }
 
-.gallery-carousel__img {
+.gallery-carousel__media {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -158,11 +158,16 @@
   animation: galleryImgReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+.gallery-carousel__media.is-horses,
+.gallery-carousel__thumb video.is-horses {
+  filter: grayscale(12%) brightness(0.5);
+}
+
 .gallery-carousel__img-wrap {
   background: linear-gradient(180deg, rgba(93, 58, 26, 0.08), rgba(245, 242, 232, 0.22));
 }
 
-.gallery-carousel__frame:hover .gallery-carousel__img {
+.gallery-carousel__frame:hover .gallery-carousel__media {
   filter: grayscale(0%);
 }
 
@@ -171,7 +176,7 @@
     animation: none;
   }
 
-  .gallery-carousel__img {
+  .gallery-carousel__media {
     animation: galleryImgRevealReduced 0.5s ease forwards;
   }
 }
@@ -457,9 +462,7 @@
   }
 
   .gallery-carousel__dots {
-    gap: 0.35rem;
-    margin-top: 1.25rem;
-    padding-bottom: 0.25rem;
+    display: none;
   }
 
   .gallery-carousel__thumbs {

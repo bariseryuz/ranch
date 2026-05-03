@@ -39,8 +39,9 @@ export function getConciergeReply(message: string): string {
   }
   if (/where|location|address|how to get/i.test(q)) {
     return (
-      'The ranch is a private estate; exact location and arrival details are shared with confirmed guests. ' +
-      `Submit an inquiry and our team will coordinate travel and privacy protocols. ${inquiryLink}`
+      'Briggs Brothers Ranch is at 961 Browns Chapel Road, Parrottsville, TN 37843, United States. ' +
+      'Detailed arrival directions are shared with confirmed guests. ' +
+      `Submit an inquiry and our team can help coordinate travel. ${inquiryLink}`
     );
   }
   if (/hello|hi|hey|^$/.test(q) || q.length < 3) {

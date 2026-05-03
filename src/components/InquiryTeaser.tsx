@@ -16,7 +16,7 @@ const InquiryTeaser = () => {
           <Link to="/plan-your-event" className="btn-primary inquiry-teaser__btn">
             Plan your event
           </Link>
-          <Link to="/event-planner" className="btn-secondary inquiry-teaser__btn">
+          <Link to="/plan-your-event?tab=ai" className="btn-secondary inquiry-teaser__btn">
             AI event planner
           </Link>
         </div>

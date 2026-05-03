@@ -78,6 +78,20 @@
   max-width: min(280px, 42vw);
 }
 
+/* Selected inner pages: 2× solid-bar logo size */
+.main-header--solid.main-header--large-logo {
+  padding: 18px clamp(16px, 4vw, 48px);
+}
+
+.main-header--solid.main-header--large-logo .logo.logo--mark {
+  max-width: min(720px, 92vw);
+}
+
+.main-header--solid.main-header--large-logo .logo__img {
+  height: clamp(80px, 12vh, 128px);
+  max-width: min(560px, 84vw);
+}
+
 .logo-sub {
   display: block;
   font-size: 0.7rem;
@@ -234,6 +248,12 @@
   .main-header--solid .logo__img {
     height: clamp(32px, 5vh, 52px);
     max-width: min(220px, 58vw);
+    margin: 0 auto;
+  }
+
+  .main-header--solid.main-header--large-logo .logo__img {
+    height: clamp(64px, 10vh, 104px);
+    max-width: min(440px, 92vw);
     margin: 0 auto;
   }
 

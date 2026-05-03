@@ -6,6 +6,8 @@ import '../styles/editorial.css';
 
 const base = import.meta.env.BASE_URL;
 
+const experiencesHeroOverlay = `${base}Nature/${encodeURIComponent('Need to add it .jpg')}`;
+
 const cards = [
   {
     to: '/corporate-retreats',
@@ -43,6 +45,7 @@ export default function ExperiencesHub() {
         subtitle="Tailored gatherings"
         image="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=2000"
         imageAlt="Ranch landscape"
+        overlayImage={experiencesHeroOverlay}
       />
       <div className="page-section page-section--wide page-section--experiences-intro">
         <p>

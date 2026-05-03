@@ -4,6 +4,11 @@ import './ExperienceGrid.css';
 
 const base = import.meta.env.BASE_URL;
 
+/** Paths under `public/` that include spaces or odd chars must be encoded per segment. */
+function publicAsset(...segments: string[]) {
+  return `${base}${segments.map((s) => encodeURIComponent(s)).join('/')}`;
+}
+
 const experiences = [
   {
     title: 'Corporate Retreats',
@@ -45,8 +50,7 @@ const experiences = [
   {
     title: 'The Ranch',
     to: '/the-ranch',
-    image:
-      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1000',
+    image: publicAsset('Nature', 'Need to add it .jpg'),
     features: [
       'Private estate buyouts',
       'Golden-hour landscapes',
@@ -58,7 +62,7 @@ const experiences = [
   {
     title: 'Culinary',
     to: '/culinary',
-    image: `${base}table.png`,
+    image: `${base}Dining/dinningcurrent.png`,
     features: [
       'Chef-driven seasonal menus',
       'Live-fire cooking',
@@ -70,7 +74,7 @@ const experiences = [
   {
     title: 'Accommodations',
     to: '/accommodations',
-    image: `${base}ran.png`,
+    image: `${base}Glamping.jpeg`,
     features: [
       'Luxury ranch homes',
       'Guest cabins',
@@ -128,7 +132,13 @@ const ExperienceGrid = () => {
         >
           {experiences.map((item, index) => (
             <div key={item.to + index} className="experience-carousel__slide">
-              <div className="experience-card">
+              <div
+                className={
+                  item.to === '/the-ranch'
+                    ? 'experience-card experience-card--ranch'
+                    : 'experience-card'
+                }
+              >
                 <div className="card-image-wrapper">
                   <img src={item.image} alt={item.title} className="card-image" />
                   <div className="card-overlay">

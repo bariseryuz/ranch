@@ -49,7 +49,7 @@ export default function CorporateRetreats() {
           dining.
         </p>
         <div className="cta-row">
-          <Link to="/event-planner" className="primary">
+          <Link to="/plan-your-event?tab=ai" className="primary">
             AI event planner
           </Link>
           <Link to="/plan-your-event" className="secondary">

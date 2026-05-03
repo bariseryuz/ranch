@@ -3,6 +3,15 @@ import './GalleryCarousel.css';
 
 export type GallerySlide = { src: string; category: string };
 
+function isVideoSrc(src: string) {
+  const clean = src.split('?')[0].toLowerCase();
+  return clean.endsWith('.mp4') || clean.endsWith('.webm') || clean.endsWith('.mov');
+}
+
+function isHorsesVideo(src: string) {
+  return src.toLowerCase().includes('ranchlifestyle/horses.mov');
+}
+
 type Props = {
   slides: GallerySlide[];
   /** Taller frame + thumbnails — full `/gallery` page */
@@ -157,7 +166,19 @@ export default function GalleryCarousel({
         </button>
         <figure className="gallery-carousel__slide" aria-live="polite">
           <div key={index} className="gallery-carousel__img-wrap">
-            <img src={current.src} alt="" className="gallery-carousel__img" />
+            {isVideoSrc(current.src) ? (
+              <video
+                className={`gallery-carousel__media ${isHorsesVideo(current.src) ? 'is-horses' : ''}`}
+                src={current.src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            ) : (
+              <img src={current.src} alt="" className="gallery-carousel__media" />
+            )}
           </div>
           <figcaption key={`cap-${index}`} className="gallery-carousel__caption">
             {current.category}
@@ -192,7 +213,17 @@ export default function GalleryCarousel({
               className={`gallery-carousel__thumb ${i === index ? 'is-active' : ''}`}
               onClick={() => setIndex(i)}
             >
-              <img src={s.src} alt="" />
+              {isVideoSrc(s.src) ? (
+                <video
+                  className={isHorsesVideo(s.src) ? 'is-horses' : ''}
+                  src={s.src}
+                  muted
+                  playsInline
+                  preload="metadata"
+                />
+              ) : (
+                <img src={s.src} alt="" />
+              )}
             </button>
           ))}
         </div>

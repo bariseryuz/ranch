@@ -12,7 +12,7 @@ const Accommodations = () => {
         </div>
         <div className="stay-grid">
           <div className="stay-item large">
-            <img src={`${base}ran.png`} alt="Luxury ranch home" />
+            <img src={`${base}RanchLifestyle/3.png`} alt="Luxury ranch home" />
             <div className="stay-info"><h3>Luxury Ranch Homes</h3></div>
           </div>
           <div className="stay-item">

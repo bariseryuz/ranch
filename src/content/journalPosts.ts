@@ -10,6 +10,21 @@ export type JournalPost = {
 
 export const journalPosts: JournalPost[] = [
   {
+    slug: 'why-wedding-at-a-ranch',
+    title: 'Why You Should Have Your Wedding at a Ranch',
+    date: '2026-05-01',
+    category: 'Weddings',
+    readTime: '6 min',
+    excerpt:
+      'Privacy, golden-hour light, and room for everyone you love—why couples trade ballrooms for pastures.',
+    body: [
+      'A ballroom compresses your weekend into a single evening; a ranch unfolds it. Guests arrive, breathe slower, and celebrate across days—not hours—with rehearsal gatherings, morning walks, and farewell brunches that feel like family, not choreography.',
+      'The setting does quiet work for you: wide skies for ceremonies, natural acoustics for vows, and landscapes that need little decoration. Photography reads cinematic without forcing poses; children roam safely; elders recall county fairs and front porches instead of parking garages.',
+      'Buyouts mean the estate is yours alone—no competing events, no rushed turnovers. Catering follows the rhythm of fire and season; lodging keeps your circle close instead of scattered across hotel blocks.',
+      'If your priority is presence over production—shared meals, starlit dancing, and the feeling that this chapter opened somewhere unforgettable—a ranch wedding rewards that intention every hour you are there.',
+    ],
+  },
+  {
     slug: 'corporate-retreat-ideas-2026',
     title: 'Best Corporate Retreat Ideas for Executive Teams',
     date: '2026-02-12',

@@ -153,11 +153,6 @@ export default function InquiryForm() {
         />
       </label>
 
-      <p className="inquiry-form__hint">
-        Inquiries are auto-tagged (wedding / corporate / private) and qualified for our concierge
-        team. Connect HubSpot or GHL via <code>VITE_INQUIRY_WEBHOOK</code>.
-      </p>
-
       <button type="submit" className="btn-primary inquiry-form__submit" disabled={status === 'sending'}>
         {status === 'sending' ? 'Sending…' : 'Submit inquiry'}
       </button>

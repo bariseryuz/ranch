@@ -23,6 +23,7 @@ const BY_CATEGORY: Record<GalleryCategory, string[]> = {
     asset('RanchLifestyle/2.png'),
     asset('RanchLifestyle/3.png'),
     asset('RanchLifestyle/4.jpg'),
+    asset('RanchLifestyle/horses.MOV'),
   ],
   Weddings: [
     asset('Weddings/Event Setup 1.png'),

@@ -17,8 +17,8 @@ export default function TheRanch() {
       <PageHero
         title="The Ranch"
         subtitle="Privacy · Exclusivity · Nature"
-        image="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000"
-        imageAlt="Golden hour over the ranch"
+        image={`${import.meta.env.BASE_URL}Weddings/Interactive%20Experience%20Package.png`}
+        imageAlt="Interactive Experience Package"
       />
       <article className="page-section">
         <h2>A refined escape into nature</h2>

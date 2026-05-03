@@ -29,7 +29,7 @@ export const tailoredPackages: TailoredPackage[] = [
   {
     id: 'executive',
     title: 'Executive Summit Package',
-    image: '1 Ranch View.png',
+    image: 'CorporateRetreats/3.PNG',
   },
   {
     id: 'wedding',
@@ -39,6 +39,6 @@ export const tailoredPackages: TailoredPackage[] = [
   {
     id: 'buyout',
     title: 'Private Ranch Buyout',
-    image: 'Cabin.png',
+    image: 'Nature/3.PNG',
   },
 ];

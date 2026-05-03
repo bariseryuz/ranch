@@ -1,10 +1,25 @@
+import { useSearchParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta.ts';
 import PageHero from '../components/PageHero.tsx';
 import InquiryForm from '../components/InquiryForm.tsx';
+import EventPlannerPanel from '../components/EventPlannerPanel.tsx';
 import '../styles/editorial.css';
 import './PlanYourEvent.css';
 
+const planHeroOverlay = `${import.meta.env.BASE_URL}Weddings/${encodeURIComponent('Interactive Experience Package.png')}`;
+
 export default function PlanYourEvent() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const tab = searchParams.get('tab') === 'ai' ? 'ai' : 'inquiry';
+
+  const setTab = (next: 'inquiry' | 'ai') => {
+    if (next === 'ai') {
+      setSearchParams({ tab: 'ai' }, { replace: true });
+    } else {
+      setSearchParams({}, { replace: true });
+    }
+  };
+
   usePageMeta({
     title: 'Plan Your Event',
     description:
@@ -16,20 +31,71 @@ export default function PlanYourEvent() {
     <>
       <PageHero
         title="Plan Your Event"
-        subtitle="Concierge response within 24–48 hours"
+        subtitle={
+          tab === 'ai'
+            ? 'AI Event Planner — indicative packages'
+            : 'Concierge response within 24–48 hours'
+        }
         image="https://images.unsplash.com/photo-1519167758481-83f29bb20432?auto=format&fit=crop&q=80&w=2000"
         imageAlt="Elegant outdoor event"
+        overlayImage={planHeroOverlay}
       />
       <div className="plan-page">
-        <div className="plan-page__intro">
-          <h2>Begin your journey</h2>
-          <p>
-            High-value inquiries are routed for priority follow-up. Connect HubSpot or Go High
-            Level by setting <code>VITE_INQUIRY_WEBHOOK</code> to your form endpoint—payload
-            includes auto-tags (wedding / corporate / private) and qualification tier.
-          </p>
+        <div className="plan-tabs" role="tablist" aria-label="Plan your event">
+          <button
+            type="button"
+            role="tab"
+            id="tab-inquiry"
+            aria-selected={tab === 'inquiry'}
+            aria-controls="panel-inquiry"
+            className={`plan-tabs__btn ${tab === 'inquiry' ? 'is-active' : ''}`}
+            onClick={() => setTab('inquiry')}
+          >
+            Concierge inquiry
+          </button>
+          <button
+            type="button"
+            role="tab"
+            id="tab-ai"
+            aria-selected={tab === 'ai'}
+            aria-controls="panel-ai"
+            className={`plan-tabs__btn ${tab === 'ai' ? 'is-active' : ''}`}
+            onClick={() => setTab('ai')}
+          >
+            AI Event Planner
+          </button>
         </div>
-        <InquiryForm />
+
+        {tab === 'inquiry' && (
+          <div
+            id="panel-inquiry"
+            role="tabpanel"
+            aria-labelledby="tab-inquiry"
+            className="plan-tab-panel"
+          >
+            <div className="plan-page__intro">
+              <h2>Begin your journey</h2>
+              <p>
+                Thank you for considering Briggs Brothers Ranch. After you submit this form, someone
+                from our sales team will reach out very shortly—usually within one business day—to
+                welcome you, hear more about your event, and guide you through availability and next
+                steps. We&apos;re here to answer questions and help shape your retreat, wedding, or
+                celebration with care.
+              </p>
+            </div>
+            <InquiryForm />
+          </div>
+        )}
+
+        {tab === 'ai' && (
+          <div id="panel-ai" role="tabpanel" aria-labelledby="tab-ai" className="plan-tab-panel">
+            <p className="plan-page__planner-lede">
+              Answer a few prompts for an indicative outline—pair it with a concierge inquiry when
+              you&apos;re ready for pricing and dates.
+            </p>
+            <EventPlannerPanel />
+          </div>
+        )}
       </div>
     </>
   );

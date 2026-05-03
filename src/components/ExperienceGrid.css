@@ -141,7 +141,18 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+/* Tailored Gatherings — The Ranch: golden-hour warmth */
+.experience-card--ranch .card-image {
+  filter: sepia(0.32) saturate(1.22) brightness(1.05) contrast(1.02) hue-rotate(-6deg);
+}
+
+.experience-card--ranch:hover .card-image {
+  filter: sepia(0.28) saturate(1.28) brightness(1.07) contrast(1.03) hue-rotate(-4deg);
 }
 
 .card-image[src*='eventsetup.png'] {

@@ -29,14 +29,28 @@ const Footer = () => {
             <Link to="/corporate-retreats">Corporate Retreats</Link>
             <Link to="/luxury-weddings">Luxury Weddings</Link>
             <Link to="/private-events">Private Events</Link>
-            <Link to="/event-planner">AI Event Planner</Link>
+            <Link to="/plan-your-event?tab=ai">AI Event Planner</Link>
           </div>
           <div>
             <h4>Connect</h4>
             <Link to="/journal">Journal</Link>
             <Link to="/plan-your-event">Plan Your Event</Link>
-            <a href="mailto:concierge@briggsbros.com">concierge@briggsbros.com</a>
-            <span className="site-footer__phone">(555) RANCH-LIFE</span>
+            <a href="mailto:info@briggsbrothersranch.com">info@briggsbrothersranch.com</a>
+            <a href="tel:+14236237543" className="site-footer__phone">
+              423-623-7543
+            </a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=961+Browns+Chapel+Road%2C+Parrottsville%2C+TN+37843%2C+United+States"
+              className="site-footer__address"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              961 Browns Chapel Road
+              <br />
+              Parrottsville, TN 37843
+              <br />
+              United States
+            </a>
           </div>
         </nav>
       </div>

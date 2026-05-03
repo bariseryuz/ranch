@@ -1,6 +1,6 @@
 import './Experience.css';
 
-const cabinImage = `${import.meta.env.BASE_URL}Cabin.png`;
+const experienceVideo = `${import.meta.env.BASE_URL}RanchLifestyle/horses.MOV`;
 
 const Experience = () => {
   return (
@@ -28,15 +28,22 @@ const Experience = () => {
             </ul>
           </div>
 
-          {/* Right Side: cabin photo + offset chocolate frame */}
+          {/* Right Side: video + flat offset wine panel behind (layered frame) */}
           <div className="experience-image-container">
-            <div className="experience-frame-accent" aria-hidden="true" />
-            <div className="experience-image-inner">
-              <img
-                src={cabinImage}
-                alt="Briggs Brothers Ranch — cabin and grounds"
-                className="experience-img"
-              />
+            <div className="experience-media-stack">
+              <div className="experience-frame-accent" aria-hidden="true" />
+              <div className="experience-image-inner">
+                <video
+                  className="experience-video"
+                  src={experienceVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="Horses and ranch landscape at Briggs Brothers Ranch"
+                />
+              </div>
             </div>
           </div>
 

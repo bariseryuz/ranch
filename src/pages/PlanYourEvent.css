@@ -4,6 +4,66 @@
   padding: 2rem 1.5rem 5rem;
 }
 
+.plan-tabs {
+  display: flex;
+  gap: 0;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(93, 58, 26, 0.15);
+}
+
+.plan-tabs__btn {
+  flex: 1;
+  max-width: 280px;
+  padding: 0.85rem 1rem 1rem;
+  font-family: var(--font-secondary);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -1px;
+  background: transparent;
+  color: rgba(93, 58, 26, 0.55);
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.plan-tabs__btn:hover {
+  color: var(--saddle-brown);
+}
+
+.plan-tabs__btn.is-active {
+  color: var(--saddle-brown);
+  border-bottom-color: var(--gold);
+}
+
+.plan-tab-panel {
+  animation: plan-panel-in 0.25s ease;
+}
+
+@keyframes plan-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.plan-page__planner-lede {
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  font-weight: 300;
+  margin: 0 0 1.5rem;
+  opacity: 0.88;
+}
+
 .plan-page__intro {
   margin-bottom: 2rem;
   text-align: center;

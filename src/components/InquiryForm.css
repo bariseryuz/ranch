@@ -43,19 +43,6 @@
   margin-top: 1.25rem;
 }
 
-.inquiry-form__hint {
-  font-size: 0.75rem;
-  line-height: 1.5;
-  opacity: 0.75;
-  margin-top: 1rem;
-}
-
-.inquiry-form__hint code {
-  font-size: 0.7rem;
-  background: rgba(93, 58, 26, 0.06);
-  padding: 0.1rem 0.35rem;
-}
-
 .inquiry-form .btn-primary {
   background-color: var(--gold);
   border: none;

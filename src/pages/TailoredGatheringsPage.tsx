@@ -83,6 +83,28 @@ export default function TailoredGatheringsPage() {
           </div>
         </div>
 
+        <section className="tgp-gallery" aria-label="Gathering spaces gallery">
+          <h2 className="tgp-gallery__heading">Gallery</h2>
+          <div className="tgp-gallery__grid">
+            <figure className="tgp-gallery__figure">
+              <img
+                src={publicAsset('p2.jpg')}
+                alt=""
+                className="tgp-gallery__img"
+                loading="lazy"
+              />
+            </figure>
+            <figure className="tgp-gallery__figure">
+              <img
+                src={publicAsset('p3.jpg')}
+                alt=""
+                className="tgp-gallery__img"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </section>
+
         <div className="tgp-page__cta">
           <Link to="/plan-your-event" className="tgp-page__cta-btn">
             Plan your event
