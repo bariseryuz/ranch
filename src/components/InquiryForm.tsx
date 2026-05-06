@@ -113,6 +113,7 @@ export default function InquiryForm() {
             <option value="corporate">Corporate retreat</option>
             <option value="wedding">Luxury wedding</option>
             <option value="private">Private event / buyout</option>
+            <option value="inhouse">In House Requests</option>
           </select>
         </label>
         <label>
