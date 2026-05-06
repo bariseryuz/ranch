@@ -1,5 +1,7 @@
 ## Info
 
+RAG layout and ingest: **`server/rag/README.md`**.
+
 Put factual reference documents here (txt/md/pdf).
 
 
@@ -26,4 +28,14 @@ We can have set up provided for weddings or any other events required. Clients s
 
 
 Understand the term events anything that is spesfically designed for a group of people ca be called event we can host up to 100 people. If the client asks for more stated that we can have max 100 people at a time 
+
+We will be offering rentals (you can refer to the 1311 website for exact details on rentals; for example, tent sizes, types of chairs, decor, etc). The website is located in the inquiry form.
+
+Labor services for all setup & breakdown of each event. This is customizable according to the event details. Also, servers, bartenders, for the actual event itself.
+
+Glamping services: tent setups, butler service, and turn down. (These are all upcharges) 
+
+We will also be able to offer food services during the experience. Imported Seafood, Caviar, and high end meals and snacks curated from our Chefs
+
+
 

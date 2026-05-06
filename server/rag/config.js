@@ -15,6 +15,16 @@ export const RAG = {
   pineconeApiKey: () => getEnv('PINECONE_API_KEY', { required: true }),
   pineconeIndex: () => getEnv('PINECONE_INDEX', { required: true })?.toLowerCase(),
   pineconeNamespace: () => getEnv('PINECONE_NAMESPACE', { defaultValue: 'default' }),
+  /** Comma-separated namespaces to query together (e.g. `default,menu`). If unset, only `pineconeNamespace()` is used. */
+  retrievalNamespaces: () => {
+    const raw = getEnv('RAG_RETRIEVAL_NAMESPACES', { defaultValue: '' });
+    if (!raw) return null;
+    const parts = raw
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
+    return parts.length ? parts : null;
+  },
   knowledgePath: () => getEnv('RAG_KNOWLEDGE_PATH', { defaultValue: 'server/rag/knowledge' }),
   chunkSize: 1000,
   chunkOverlap: 200,

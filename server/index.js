@@ -47,6 +47,12 @@ app.post('/api/concierge', async (req, res) => {
   const messages = Array.isArray(body?.messages) ? body.messages : [];
   const namespace =
     typeof body?.namespace === 'string' ? body.namespace.trim() : undefined;
+  const namespaces = Array.isArray(body?.namespaces)
+    ? body.namespaces
+        .filter((n) => typeof n === 'string')
+        .map((n) => n.trim())
+        .filter(Boolean)
+    : undefined;
 
   if (!latest && messages.length === 0) {
     return res.status(400).json({ error: 'Missing message or messages' });
@@ -57,6 +63,7 @@ app.post('/api/concierge', async (req, res) => {
       message: latest,
       messages,
       namespace,
+      namespaces,
     });
 
     return res.json({ reply });

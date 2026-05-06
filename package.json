@@ -12,7 +12,10 @@
     "build": "tsc -b && vite build",
     "start": "node server/index.js",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "rag:ingest:knowledge": "node server/rag/ingest.js --path server/rag/knowledge",
+    "rag:ingest:menu": "node server/rag/ingest.js --path server/rag/menu",
+    "rag:ingest:all": "node server/rag/ingest.js --path server/rag/knowledge && node server/rag/ingest.js --path server/rag/menu"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
