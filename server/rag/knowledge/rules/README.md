@@ -2,7 +2,7 @@
 
 RAG layout and ingest: **`server/rag/README.md`**.
 
-Put rule/policy documents here (txt/md/pdf).
+Put rule/policy documents here (txt/md/pdf). See **`concierge-special-requests.md`** for tone, special requests, and the inquiry URL.
 
 Examples:
 
