@@ -40,16 +40,23 @@ export default function InquiryForm() {
     };
 
     try {
+      // Send to server for email delivery; also fire webhook if configured
+      const apiRes = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!apiRes.ok) throw new Error('Inquiry API failed');
+
       if (webhook) {
-        const res = await fetch(webhook, {
+        // Fire-and-forget to CRM / Zapier — don't block the user on this
+        fetch(webhook, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
-        });
-        if (!res.ok) throw new Error('Webhook failed');
-      } else {
-        console.info('[Inquiry demo — set VITE_INQUIRY_WEBHOOK for CRM]', payload);
+        }).catch(() => {});
       }
+
       setStatus('success');
     } catch {
       setStatus('error');

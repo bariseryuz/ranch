@@ -10,6 +10,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 
 import { answerConcierge } from './rag/qa.js';
+import { sendInquiryEmail } from './mailer.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
@@ -74,6 +75,20 @@ app.post('/api/concierge', async (req, res) => {
       reply:
         'Sorry — something went wrong. Please try again or email concierge@briggsbros.com.',
     });
+  }
+});
+
+app.post('/api/inquiry', async (req, res) => {
+  const payload = req.body;
+  if (!payload || typeof payload.name !== 'string' || !payload.name.trim()) {
+    return res.status(400).json({ error: 'Missing required inquiry fields' });
+  }
+  try {
+    await sendInquiryEmail(payload);
+    return res.json({ ok: true });
+  } catch (e) {
+    console.error('[inquiry]', e);
+    return res.status(500).json({ error: 'Failed to send inquiry email' });
   }
 });
 
