@@ -72,6 +72,17 @@
   line-height: 1.45;
 }
 
+.concierge__link {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.concierge__link:hover {
+  opacity: 0.9;
+}
+
 .concierge__bubble--assistant {
   align-self: flex-start;
   background: rgba(159, 175, 144, 0.25);

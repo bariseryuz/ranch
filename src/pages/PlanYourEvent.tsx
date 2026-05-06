@@ -7,6 +7,7 @@ import '../styles/editorial.css';
 import './PlanYourEvent.css';
 
 const planHeroOverlay = `${import.meta.env.BASE_URL}Weddings/${encodeURIComponent('Interactive Experience Package.png')}`;
+const events1311Logo = `${import.meta.env.BASE_URL}1311/1311.png`;
 
 export default function PlanYourEvent() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -83,6 +84,40 @@ export default function PlanYourEvent() {
                 celebration with care.
               </p>
             </div>
+            <aside className="plan-page__partner" aria-label="Event production partner">
+              <div className="plan-page__partner-inner">
+                <a
+                  href="https://1311events.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="plan-page__partner-logo-link"
+                  aria-label="1311 Events — open website"
+                >
+                  <img
+                    src={events1311Logo}
+                    alt=""
+                    className="plan-page__partner-logo"
+                    width={72}
+                    height={72}
+                  />
+                </a>
+                <p>
+                  We are pleased to work alongside{' '}
+                  <a
+                    href="https://1311events.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="plan-page__partner-link"
+                  >
+                    1311 Events
+                  </a>
+                  , our sister company and dedicated event specialists. Production, logistics, and
+                  on-the-ground service are orchestrated by their team in seamless alignment with
+                  ours—so every detail reflects the same caliber of hospitality, discretion, and
+                  polish you expect at the ranch.
+                </p>
+              </div>
+            </aside>
             <InquiryForm />
           </div>
         )}

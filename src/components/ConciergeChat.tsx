@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, type ReactNode } from 'react';
 import { fetchConciergeReply } from '../utils/conciergeApi.ts';
 import { getConciergeReply } from '../utils/conciergeResponses.ts';
 import './ConciergeChat.css';
@@ -6,6 +6,33 @@ import './ConciergeChat.css';
 type Msg = { role: 'user' | 'assistant'; text: string };
 
 const conciergeApiUrl = import.meta.env.VITE_CONCIERGE_API_URL?.trim();
+
+/** Renders `[label](url)` as a real link; everything else stays plain text. */
+function textWithMarkdownLinks(text: string): ReactNode {
+  const re = /\[([^\]]+)]\(([^)\s]+)\)/g;
+  const out: ReactNode[] = [];
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let k = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    const href = m[2];
+    out.push(
+      <a
+        key={k++}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="concierge__link"
+      >
+        {m[1]}
+      </a>,
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out.length ? out : text;
+}
 
 export default function ConciergeChat() {
   const [open, setOpen] = useState(false);
@@ -72,7 +99,7 @@ export default function ConciergeChat() {
           <div className="concierge__messages">
             {messages.map((msg, i) => (
               <div key={i} className={`concierge__bubble concierge__bubble--${msg.role}`}>
-                {msg.text}
+                {textWithMarkdownLinks(msg.text)}
               </div>
             ))}
             <div ref={endRef} />
