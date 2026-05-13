@@ -102,7 +102,7 @@ export default function PlanYourEvent() {
                   />
                 </a>
                 <p>
-                  We are pleased to work alongside{' '}
+                  We work in close partnership with{' '}
                   <a
                     href="https://1311events.com/"
                     target="_blank"
@@ -111,10 +111,9 @@ export default function PlanYourEvent() {
                   >
                     1311 Events
                   </a>
-                  , our sister company and dedicated event specialists. Production, logistics, and
-                  on-the-ground service are orchestrated by their team in seamless alignment with
-                  ours—so every detail reflects the same caliber of hospitality, discretion, and
-                  polish you expect at the ranch.
+                  , trusted specialists in event production and guest experience. Together, our
+                  teams ensure every aspect of your event is flawlessly coordinated with the same
+                  standard of service, discretion, and elevated hospitality the ranch is known for.
                 </p>
               </div>
             </aside>
