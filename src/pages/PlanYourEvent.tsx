@@ -3,6 +3,7 @@ import { usePageMeta } from '../hooks/usePageMeta.ts';
 import PageHero from '../components/PageHero.tsx';
 import InquiryForm from '../components/InquiryForm.tsx';
 import EventPlannerPanel from '../components/EventPlannerPanel.tsx';
+import LittleHotelierWidget from '../components/LittleHotelierWidget.tsx';
 import '../styles/editorial.css';
 import './PlanYourEvent.css';
 
@@ -11,13 +12,15 @@ const events1311Logo = `${import.meta.env.BASE_URL}1311/1311.png`;
 
 export default function PlanYourEvent() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const tab = searchParams.get('tab') === 'ai' ? 'ai' : 'inquiry';
+  const rawTab = searchParams.get('tab');
+  const tab: 'inquiry' | 'ai' | 'book' =
+    rawTab === 'ai' ? 'ai' : rawTab === 'book' ? 'book' : 'inquiry';
 
-  const setTab = (next: 'inquiry' | 'ai') => {
-    if (next === 'ai') {
-      setSearchParams({ tab: 'ai' }, { replace: true });
-    } else {
+  const setTab = (next: 'inquiry' | 'ai' | 'book') => {
+    if (next === 'inquiry') {
       setSearchParams({}, { replace: true });
+    } else {
+      setSearchParams({ tab: next }, { replace: true });
     }
   };
 
@@ -35,7 +38,9 @@ export default function PlanYourEvent() {
         subtitle={
           tab === 'ai'
             ? 'AI Event Planner — indicative packages'
-            : 'Concierge response within 24–48 hours'
+            : tab === 'book'
+              ? 'Secure direct booking'
+              : 'Concierge response within 24–48 hours'
         }
         image="https://images.unsplash.com/photo-1519167758481-83f29bb20432?auto=format&fit=crop&q=80&w=2000"
         imageAlt="Elegant outdoor event"
@@ -64,6 +69,17 @@ export default function PlanYourEvent() {
             onClick={() => setTab('ai')}
           >
             AI Event Planner
+          </button>
+          <button
+            type="button"
+            role="tab"
+            id="tab-book"
+            aria-selected={tab === 'book'}
+            aria-controls="panel-book"
+            className={`plan-tabs__btn ${tab === 'book' ? 'is-active' : ''}`}
+            onClick={() => setTab('book')}
+          >
+            Book Direct
           </button>
         </div>
 
@@ -128,6 +144,12 @@ export default function PlanYourEvent() {
               you&apos;re ready for pricing and dates.
             </p>
             <EventPlannerPanel />
+          </div>
+        )}
+
+        {tab === 'book' && (
+          <div id="panel-book" role="tabpanel" aria-labelledby="tab-book" className="plan-tab-panel">
+            <LittleHotelierWidget />
           </div>
         )}
       </div>
