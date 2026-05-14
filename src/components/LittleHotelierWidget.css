@@ -3,9 +3,104 @@
   padding: 0.5rem 0 2rem;
 }
 
-/* Let the SiteMinder IBE fill the tab panel naturally */
 .lh-widget--embed {
-  min-height: 400px;
+  min-height: 500px;
+}
+
+.lh-widget__intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.lh-widget__intro h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.5rem;
+}
+
+.lh-widget__intro p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  font-weight: 300;
+  margin: 0;
+  opacity: 0.88;
+}
+
+.lh-widget__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lh-widget__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.lh-widget__field span {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--saddle-brown);
+  font-family: var(--font-secondary);
+  font-weight: 500;
+}
+
+.lh-widget__field input,
+.lh-widget__field select {
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(93, 58, 26, 0.25);
+  border-radius: 2px;
+  background: rgba(93, 58, 26, 0.03);
+  font-family: var(--font-secondary);
+  font-size: 0.88rem;
+  color: var(--saddle-brown);
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.lh-widget__field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235d3a1a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.25rem;
+}
+
+.lh-widget__field input:focus,
+.lh-widget__field select:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(93, 58, 26, 0.04);
+}
+
+.lh-widget__summary {
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(93, 58, 26, 0.55);
+  font-family: var(--font-secondary);
+  margin: 0 0 1.75rem;
+}
+
+.lh-widget__cta {
+  display: block;
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto 1.25rem;
+  box-sizing: border-box;
+}
+
+.lh-widget__note {
+  text-align: center;
+  font-size: 0.8rem;
+  font-style: italic;
+  opacity: 0.55;
+  margin: 0;
 }
 
 /* Unconfigured state */
@@ -31,7 +126,6 @@
   font-family: monospace;
 }
 
-/* Responsive */
 @media (max-width: 580px) {
   .lh-widget__form {
     grid-template-columns: 1fr 1fr;

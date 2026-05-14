@@ -13,7 +13,6 @@ export default function LittleHotelierWidget() {
     initialized.current = true;
 
     if (document.querySelector(`script[src="${SCRIPT_SRC}"]`)) {
-      // Script already on page — try to re-init if the IBE API is available
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const w = window as any;
       if (w.ibe?.init) w.ibe.init();
@@ -40,7 +39,6 @@ export default function LittleHotelierWidget() {
 
   return (
     <div className="lh-widget lh-widget--embed">
-      {/* SiteMinder IBE — initialised by widget.siteminder.com/ibe.min.js */}
       <div
         className="ibe"
         data-region={REGION}
