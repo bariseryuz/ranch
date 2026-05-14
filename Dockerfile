@@ -11,6 +11,11 @@ ENV VITE_BASE=/
 # Same-origin concierge route served by server/index.js (do not put GEMINI_API_KEY here)
 ENV VITE_CONCIERGE_API_URL=/api/concierge
 ENV NODE_OPTIONS=--max-old-space-size=4096
+# Little Hotelier IBE — declared as ARG so Railway passes service variables into the build layer
+ARG VITE_LH_CHANNEL_CODE
+ARG VITE_LH_REGION=emea
+ENV VITE_LH_CHANNEL_CODE=$VITE_LH_CHANNEL_CODE
+ENV VITE_LH_REGION=$VITE_LH_REGION
 RUN npm run build
 
 FROM node:20-bookworm-slim AS runner
