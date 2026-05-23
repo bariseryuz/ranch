@@ -46,7 +46,7 @@ export default function PlanYourEvent() {
         imageAlt="Elegant outdoor event"
         overlayImage={planHeroOverlay}
       />
-      <div className="plan-page">
+      <div className={`plan-page${tab === 'book' ? ' plan-page--booking' : ''}`}>
         <div className="plan-tabs" role="tablist" aria-label="Plan your event">
           <button
             type="button"
