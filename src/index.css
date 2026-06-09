@@ -1,5 +1,5 @@
 /* Primary: editorial serif (Didot-like). Secondary: clean sans (Avenir / Helvetica family). */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@300;400;500;600&display=swap');
+/* Fonts loaded non-blocking via <link media="print"> in index.html */
 
 :root {
   --saddle-brown: #5D3A1A;

@@ -140,7 +140,13 @@ const ExperienceGrid = () => {
                 }
               >
                 <div className="card-image-wrapper">
-                  <img src={item.image} alt={item.title} className="card-image" />
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="card-image"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="card-overlay">
                     <Link to={item.to} className="card-btn">
                       Explore Details

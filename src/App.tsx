@@ -1,21 +1,23 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.tsx';
 import InnerLayout from './components/InnerLayout.tsx';
 import ConciergeChat from './components/ConciergeChat.tsx';
-import TheRanch from './pages/TheRanch.tsx';
-import LegacyPage from './pages/LegacyPage.tsx';
-import ExperiencesHub from './pages/ExperiencesHub.tsx';
-import CorporateRetreats from './pages/CorporateRetreats.tsx';
-import LuxuryWeddings from './pages/LuxuryWeddings.tsx';
-import PrivateEvents from './pages/PrivateEvents.tsx';
-import CulinaryPage from './pages/CulinaryPage.tsx';
-import AccommodationsPage from './pages/AccommodationsPage.tsx';
-import GalleryPage from './pages/GalleryPage.tsx';
-import Journal from './pages/Journal.tsx';
-import JournalPost from './pages/JournalPost.tsx';
-import PlanYourEvent from './pages/PlanYourEvent.tsx';
-import EventPlanner from './pages/EventPlanner.tsx';
-import TailoredGatheringsPage from './pages/TailoredGatheringsPage.tsx';
+
+const TheRanch             = lazy(() => import('./pages/TheRanch.tsx'));
+const LegacyPage           = lazy(() => import('./pages/LegacyPage.tsx'));
+const ExperiencesHub       = lazy(() => import('./pages/ExperiencesHub.tsx'));
+const TailoredGatheringsPage = lazy(() => import('./pages/TailoredGatheringsPage.tsx'));
+const CorporateRetreats    = lazy(() => import('./pages/CorporateRetreats.tsx'));
+const LuxuryWeddings       = lazy(() => import('./pages/LuxuryWeddings.tsx'));
+const PrivateEvents        = lazy(() => import('./pages/PrivateEvents.tsx'));
+const CulinaryPage         = lazy(() => import('./pages/CulinaryPage.tsx'));
+const AccommodationsPage   = lazy(() => import('./pages/AccommodationsPage.tsx'));
+const GalleryPage          = lazy(() => import('./pages/GalleryPage.tsx'));
+const Journal              = lazy(() => import('./pages/Journal.tsx'));
+const JournalPost          = lazy(() => import('./pages/JournalPost.tsx'));
+const PlanYourEvent        = lazy(() => import('./pages/PlanYourEvent.tsx'));
+const EventPlanner         = lazy(() => import('./pages/EventPlanner.tsx'));
 
 function App() {
   return (
@@ -23,20 +25,22 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<InnerLayout />}>
-          <Route path="/the-ranch" element={<TheRanch />} />
-          <Route path="/legacy" element={<LegacyPage />} />
-          <Route path="/experiences" element={<ExperiencesHub />} />
-          <Route path="/tailored-gatherings" element={<TailoredGatheringsPage />} />
-          <Route path="/corporate-retreats" element={<CorporateRetreats />} />
-          <Route path="/luxury-weddings" element={<LuxuryWeddings />} />
-          <Route path="/private-events" element={<PrivateEvents />} />
-          <Route path="/culinary" element={<CulinaryPage />} />
-          <Route path="/accommodations" element={<AccommodationsPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/journal" element={<Journal />} />
-          <Route path="/journal/:slug" element={<JournalPost />} />
-          <Route path="/plan-your-event" element={<PlanYourEvent />} />
-          <Route path="/event-planner" element={<EventPlanner />} />
+          <Suspense>
+            <Route path="/the-ranch"          element={<TheRanch />} />
+            <Route path="/legacy"             element={<LegacyPage />} />
+            <Route path="/experiences"        element={<ExperiencesHub />} />
+            <Route path="/tailored-gatherings" element={<TailoredGatheringsPage />} />
+            <Route path="/corporate-retreats" element={<CorporateRetreats />} />
+            <Route path="/luxury-weddings"    element={<LuxuryWeddings />} />
+            <Route path="/private-events"     element={<PrivateEvents />} />
+            <Route path="/culinary"           element={<CulinaryPage />} />
+            <Route path="/accommodations"     element={<AccommodationsPage />} />
+            <Route path="/gallery"            element={<GalleryPage />} />
+            <Route path="/journal"            element={<Journal />} />
+            <Route path="/journal/:slug"      element={<JournalPost />} />
+            <Route path="/plan-your-event"    element={<PlanYourEvent />} />
+            <Route path="/event-planner"      element={<EventPlanner />} />
+          </Suspense>
         </Route>
       </Routes>
       <ConciergeChat />

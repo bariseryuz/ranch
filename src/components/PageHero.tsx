@@ -40,7 +40,13 @@ export default function PageHero({
             preload="metadata"
           />
         ) : (
-          <img src={image} alt={imageAlt ?? ''} className="page-hero__img" />
+          <img
+            src={image}
+            alt={imageAlt ?? ''}
+            className="page-hero__img"
+            fetchPriority="high"
+            decoding="async"
+          />
         )}
         <div
           className={`page-hero__overlay ${overlayImage ? 'page-hero__overlay--custom' : ''}`}

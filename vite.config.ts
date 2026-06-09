@@ -16,4 +16,16 @@ export default defineConfig(({ mode }) => ({
       '/api': 'http://127.0.0.1:3000',
     },
   },
+  build: {
+    // Raise the warning limit slightly — images are in public/, not bundled
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // React core — cached separately, rarely changes
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
+  },
 }))
