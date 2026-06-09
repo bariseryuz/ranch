@@ -14,10 +14,10 @@ export default function PlanYourEvent() {
   const [searchParams, setSearchParams] = useSearchParams();
   const rawTab = searchParams.get('tab');
   const tab: 'inquiry' | 'ai' | 'book' =
-    rawTab === 'ai' ? 'ai' : rawTab === 'book' ? 'book' : 'inquiry';
+    rawTab === 'inquiry' ? 'inquiry' : rawTab === 'ai' ? 'ai' : 'book';
 
   const setTab = (next: 'inquiry' | 'ai' | 'book') => {
-    if (next === 'inquiry') {
+    if (next === 'book') {
       setSearchParams({}, { replace: true });
     } else {
       setSearchParams({ tab: next }, { replace: true });
@@ -25,22 +25,22 @@ export default function PlanYourEvent() {
   };
 
   usePageMeta({
-    title: 'Plan Your Event',
+    title: 'Book Now',
     description:
-      'Submit a qualified inquiry for corporate retreats, weddings, and private buyouts at Briggs Brothers Ranch.',
-    keywords: 'luxury ranch inquiry, corporate retreat booking, ranch wedding inquiry',
+      'Book your stay or submit an inquiry for corporate retreats, weddings, and private buyouts at Briggs Brothers Ranch.',
+    keywords: 'luxury ranch booking, ranch stay, corporate retreat booking, ranch wedding inquiry',
   });
 
   return (
     <>
       <PageHero
-        title="Plan Your Event"
+        title="Book Now"
         subtitle={
           tab === 'ai'
             ? 'AI Event Planner — indicative packages'
-            : tab === 'book'
-              ? 'Secure direct booking'
-              : 'Concierge response within 24–48 hours'
+            : tab === 'inquiry'
+              ? 'Concierge response within 24–48 hours'
+              : 'Secure direct booking'
         }
         image="https://images.unsplash.com/photo-1519167758481-83f29bb20432?auto=format&fit=crop&q=80&w=2000"
         imageAlt="Elegant outdoor event"

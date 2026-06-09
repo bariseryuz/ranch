@@ -103,7 +103,7 @@ const Header = () => {
           Stay
         </Link>
         <Link to="/plan-your-event" className="cta-link" onClick={close}>
-          Plan Your Event
+          Book Now
         </Link>
       </div>
 
@@ -149,7 +149,7 @@ const Header = () => {
             AI Event Planner
           </Link>
           <Link to="/plan-your-event" className="cta-link" onClick={close}>
-            Plan Your Event
+            Book Now
           </Link>
         </nav>
       </div>
