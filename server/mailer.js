@@ -1,36 +1,18 @@
 /**
- * Email transport for inquiry form submissions.
+ * Email transport for inquiry form submissions — powered by Resend.
  *
- * Required env vars (set in .env.local once credentials arrive):
- *   SMTP_HOST      — e.g. smtp.gmail.com
- *   SMTP_PORT      — e.g. 587
- *   SMTP_USER      — sender account (your Gmail / G Suite address)
- *   SMTP_PASS      — app password (never the account password)
- *   INQUIRY_TO     — destination inbox, e.g. info@briggsbrothersranch.com
+ * Required env vars:
+ *   RESEND_API_KEY  — from resend.com/api-keys
+ *   RESEND_FROM     — verified sender, e.g. "Briggs Brothers Ranch <inquiries@briggsbrothersranch.com>"
+ *   INQUIRY_TO      — destination inbox, e.g. info@briggsbrothersranch.com
  *
- * Until credentials are configured the function logs the payload and resolves
- * normally so form submissions still "succeed" gracefully in demo mode.
+ * If RESEND_API_KEY is not set the function logs the payload and resolves
+ * normally so the form still "succeeds" gracefully in demo mode.
  */
 
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
-const configured =
-  process.env.SMTP_HOST &&
-  process.env.SMTP_USER &&
-  process.env.SMTP_PASS &&
-  process.env.INQUIRY_TO;
-
-function buildTransport() {
-  return nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT) || 587,
-    secure: Number(process.env.SMTP_PORT) === 465,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
-}
+const configured = process.env.RESEND_API_KEY && process.env.INQUIRY_TO;
 
 /**
  * @param {object} payload  — the full inquiry form payload from the frontend
@@ -38,7 +20,7 @@ function buildTransport() {
  */
 export async function sendInquiryEmail(payload) {
   if (!configured) {
-    console.info('[mailer] SMTP not configured — logging inquiry instead:', payload);
+    console.info('[mailer] Resend not configured — logging inquiry instead:', payload);
     return;
   }
 
@@ -109,15 +91,23 @@ export async function sendInquiryEmail(payload) {
   <p style="padding:12px 20px;font-size:11px;color:#999">Submitted ${submittedAt}</p>
 </div>`;
 
-  const transport = buildTransport();
-  await transport.sendMail({
-    from: `"Briggs Brothers Ranch" <${process.env.SMTP_USER}>`,
-    to: process.env.INQUIRY_TO,
-    replyTo: email,
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
+  const from = process.env.RESEND_FROM ?? 'Briggs Brothers Ranch <onboarding@resend.dev>';
+
+  const { error } = await resend.emails.send({
+    from,
+    to: [process.env.INQUIRY_TO],
+    reply_to: email,
     subject: `[Inquiry] ${name} — ${eventType} · ${guestCount} guests`,
     text,
     html,
   });
 
-  console.info('[mailer] Inquiry email sent to', process.env.INQUIRY_TO);
+  if (error) {
+    console.error('[mailer] Resend error:', error);
+    throw new Error(error.message);
+  }
+
+  console.info('[mailer] Inquiry email sent via Resend to', process.env.INQUIRY_TO);
 }
