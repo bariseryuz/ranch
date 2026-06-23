@@ -17,6 +17,7 @@ const GalleryPage            = lazy(() => import('./pages/GalleryPage.tsx'));
 const Journal                = lazy(() => import('./pages/Journal.tsx'));
 const JournalPost            = lazy(() => import('./pages/JournalPost.tsx'));
 const PlanYourEvent          = lazy(() => import('./pages/PlanYourEvent.tsx'));
+const BookRoomNow            = lazy(() => import('./pages/BookRoomNow.tsx'));
 const EventPlanner           = lazy(() => import('./pages/EventPlanner.tsx'));
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Route path="/journal"             element={<Journal />} />
             <Route path="/journal/:slug"       element={<JournalPost />} />
             <Route path="/plan-your-event"     element={<PlanYourEvent />} />
+            <Route path="/book-room-now"       element={<BookRoomNow />} />
             <Route path="/event-planner"       element={<EventPlanner />} />
           </Route>
         </Routes>

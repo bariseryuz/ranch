@@ -102,10 +102,10 @@ const Header = () => {
         <Link to="/accommodations" onClick={close}>
           Stay
         </Link>
-        <Link to="/plan-your-event?tab=inquiry" onClick={close}>
+        <Link to="/plan-your-event" onClick={close}>
           Concierge Inquiry
         </Link>
-        <Link to="/plan-your-event?tab=book" className="cta-link" onClick={close}>
+        <Link to="/book-room-now" className="cta-link" onClick={close}>
           Book Room Now
         </Link>
       </div>
@@ -148,10 +148,10 @@ const Header = () => {
           <Link to="/journal" onClick={close}>
             Journal
           </Link>
-          <Link to="/plan-your-event?tab=inquiry" onClick={close}>
+          <Link to="/plan-your-event" onClick={close}>
             Concierge Inquiry
           </Link>
-          <Link to="/plan-your-event?tab=book" className="cta-link" onClick={close}>
+          <Link to="/book-room-now" className="cta-link" onClick={close}>
             Book Room Now
           </Link>
         </nav>
