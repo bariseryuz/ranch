@@ -2,7 +2,6 @@ import { useSearchParams } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta.ts';
 import PageHero from '../components/PageHero.tsx';
 import InquiryForm from '../components/InquiryForm.tsx';
-import EventPlannerPanel from '../components/EventPlannerPanel.tsx';
 import LittleHotelierWidget from '../components/LittleHotelierWidget.tsx';
 import '../styles/editorial.css';
 import './PlanYourEvent.css';
@@ -13,10 +12,9 @@ const events1311Logo = `${import.meta.env.BASE_URL}1311/1311.png`;
 export default function PlanYourEvent() {
   const [searchParams, setSearchParams] = useSearchParams();
   const rawTab = searchParams.get('tab');
-  const tab: 'inquiry' | 'ai' | 'book' =
-    rawTab === 'ai' ? 'ai' : rawTab === 'book' ? 'book' : 'inquiry';
+  const tab: 'inquiry' | 'book' = rawTab === 'book' ? 'book' : 'inquiry';
 
-  const setTab = (next: 'inquiry' | 'ai' | 'book') => {
+  const setTab = (next: 'inquiry' | 'book') => {
     if (next === 'inquiry') {
       setSearchParams({}, { replace: true });
     } else {
@@ -36,11 +34,9 @@ export default function PlanYourEvent() {
       <PageHero
         title="Book Room Now"
         subtitle={
-          tab === 'ai'
-            ? 'AI Event Planner — indicative packages'
-            : tab === 'inquiry'
-              ? 'Concierge response within 24–48 hours'
-              : 'Secure direct booking'
+          tab === 'book'
+            ? 'Secure direct booking'
+            : 'Concierge response within 24–48 hours'
         }
         image="https://images.unsplash.com/photo-1519167758481-83f29bb20432?auto=format&fit=crop&q=80&w=2000"
         imageAlt="Elegant outdoor event"
@@ -58,17 +54,6 @@ export default function PlanYourEvent() {
             onClick={() => setTab('inquiry')}
           >
             Concierge inquiry
-          </button>
-          <button
-            type="button"
-            role="tab"
-            id="tab-ai"
-            aria-selected={tab === 'ai'}
-            aria-controls="panel-ai"
-            className={`plan-tabs__btn ${tab === 'ai' ? 'is-active' : ''}`}
-            onClick={() => setTab('ai')}
-          >
-            AI Event Planner
           </button>
           <button
             type="button"
@@ -134,16 +119,6 @@ export default function PlanYourEvent() {
               </div>
             </aside>
             <InquiryForm />
-          </div>
-        )}
-
-        {tab === 'ai' && (
-          <div id="panel-ai" role="tabpanel" aria-labelledby="tab-ai" className="plan-tab-panel">
-            <p className="plan-page__planner-lede">
-              Answer a few prompts for an indicative outline—pair it with a concierge inquiry when
-              you&apos;re ready for pricing and dates.
-            </p>
-            <EventPlannerPanel />
           </div>
         )}
 

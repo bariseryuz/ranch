@@ -148,9 +148,6 @@ const Header = () => {
           <Link to="/journal" onClick={close}>
             Journal
           </Link>
-          <Link to="/plan-your-event?tab=ai" onClick={close}>
-            AI Event Planner
-          </Link>
           <Link to="/plan-your-event?tab=inquiry" onClick={close}>
             Concierge Inquiry
           </Link>
