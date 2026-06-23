@@ -105,7 +105,7 @@ const Header = () => {
         <Link to="/plan-your-event?tab=inquiry" onClick={close}>
           Concierge Inquiry
         </Link>
-        <Link to="/plan-your-event" className="cta-link" onClick={close}>
+        <Link to="/plan-your-event?tab=book" className="cta-link" onClick={close}>
           Book Room Now
         </Link>
       </div>
@@ -154,7 +154,7 @@ const Header = () => {
           <Link to="/plan-your-event?tab=inquiry" onClick={close}>
             Concierge Inquiry
           </Link>
-          <Link to="/plan-your-event" className="cta-link" onClick={close}>
+          <Link to="/plan-your-event?tab=book" className="cta-link" onClick={close}>
             Book Room Now
           </Link>
         </nav>

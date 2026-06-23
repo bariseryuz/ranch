@@ -14,10 +14,10 @@ export default function PlanYourEvent() {
   const [searchParams, setSearchParams] = useSearchParams();
   const rawTab = searchParams.get('tab');
   const tab: 'inquiry' | 'ai' | 'book' =
-    rawTab === 'inquiry' ? 'inquiry' : rawTab === 'ai' ? 'ai' : 'book';
+    rawTab === 'ai' ? 'ai' : rawTab === 'book' ? 'book' : 'inquiry';
 
   const setTab = (next: 'inquiry' | 'ai' | 'book') => {
-    if (next === 'book') {
+    if (next === 'inquiry') {
       setSearchParams({}, { replace: true });
     } else {
       setSearchParams({ tab: next }, { replace: true });
