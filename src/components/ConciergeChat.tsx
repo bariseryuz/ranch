@@ -46,10 +46,20 @@ export default function ConciergeChat() {
     },
   ]);
   const endRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, open]);
+
+  // When the panel opens, force-focus the input — this wrests focus away from
+  // any cross-origin iframe (e.g. Little Hotelier booking engine) on the page
+  useEffect(() => {
+    if (open) {
+      const t = setTimeout(() => inputRef.current?.focus(), 80);
+      return () => clearTimeout(t);
+    }
+  }, [open]);
 
   const send = async () => {
     const t = input.trim();
@@ -106,6 +116,7 @@ export default function ConciergeChat() {
           </div>
           <div className="concierge__input-row">
             <input
+              ref={inputRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) =>
