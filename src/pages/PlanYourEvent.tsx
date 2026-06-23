@@ -25,7 +25,7 @@ export default function PlanYourEvent() {
   };
 
   usePageMeta({
-    title: 'Book Now',
+    title: 'Book Room Now',
     description:
       'Book your stay or submit an inquiry for corporate retreats, weddings, and private buyouts at Briggs Brothers Ranch.',
     keywords: 'luxury ranch booking, ranch stay, corporate retreat booking, ranch wedding inquiry',
@@ -34,7 +34,7 @@ export default function PlanYourEvent() {
   return (
     <>
       <PageHero
-        title="Book Now"
+        title="Book Room Now"
         subtitle={
           tab === 'ai'
             ? 'AI Event Planner — indicative packages'
