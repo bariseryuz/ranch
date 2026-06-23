@@ -102,6 +102,9 @@ const Header = () => {
         <Link to="/accommodations" onClick={close}>
           Stay
         </Link>
+        <Link to="/plan-your-event?tab=inquiry" onClick={close}>
+          Concierge Inquiry
+        </Link>
         <Link to="/plan-your-event" className="cta-link" onClick={close}>
           Book Room Now
         </Link>
@@ -147,6 +150,9 @@ const Header = () => {
           </Link>
           <Link to="/plan-your-event?tab=ai" onClick={close}>
             AI Event Planner
+          </Link>
+          <Link to="/plan-your-event?tab=inquiry" onClick={close}>
+            Concierge Inquiry
           </Link>
           <Link to="/plan-your-event" className="cta-link" onClick={close}>
             Book Room Now
