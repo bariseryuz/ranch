@@ -167,8 +167,8 @@ export default function InquiryForm() {
 
       {status === 'success' && (
         <p className="inquiry-form__msg inquiry-form__msg--ok" role="status">
-          Thank you. A concierge will respond shortly. High-value inquiries are prioritized for a
-          discovery call.
+          Thank you. A concierge will respond shortly. Thank you for your interest and time. Have a
+          good day.
         </p>
       )}
       {status === 'error' && (

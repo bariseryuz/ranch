@@ -4,7 +4,7 @@
  * Required env vars:
  *   RESEND_API_KEY  — from resend.com/api-keys
  *   RESEND_FROM     — verified sender, e.g. "Briggs Brothers Ranch <inquiries@briggsbrothersranch.com>"
- *   INQUIRY_TO      — destination inbox, e.g. info@briggsbrothersranch.com
+ *   INQUIRY_TO      — destination inbox, e.g. info@1311events.com
  *
  * If RESEND_API_KEY is not set the function logs the payload and resolves
  * normally so the form still "succeeds" gracefully in demo mode.
