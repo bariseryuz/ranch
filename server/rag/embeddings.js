@@ -6,5 +6,6 @@ export function createEmbeddings() {
   return new OpenAIEmbeddings({
     apiKey: RAG.openaiApiKey(),
     model: RAG.embeddingModel(),
+    dimensions: RAG.embeddingDimensions(),
   });
 }
