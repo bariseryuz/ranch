@@ -1,7 +1,14 @@
 import crypto from 'node:crypto';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
+import dotenv from 'dotenv';
 import { PineconeStore } from '@langchain/pinecone';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const root = path.join(__dirname, '../..');
+dotenv.config({ path: path.join(root, '.env') });
+dotenv.config({ path: path.join(root, '.env.local'), override: true });
 
 import { RAG } from './config.js';
 import { loadDocumentsFromPath } from './loaders.js';

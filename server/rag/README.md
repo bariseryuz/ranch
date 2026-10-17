@@ -1,6 +1,6 @@
 # RAG (concierge backend)
 
-This folder powers **`POST /api/concierge`**: retrieve chunks from **Pinecone**, then answer with **Gemini** using `server/rag/qa.js`.
+This folder powers **`POST /api/concierge`**: retrieve chunks from **Pinecone**, then answer with **OpenAI** using `server/rag/qa.js`.
 
 ## Layout
 
@@ -9,10 +9,10 @@ This folder powers **`POST /api/concierge`**: retrieve chunks from **Pinecone**,
 | `config.js` | Env vars, chunk sizes, default knowledge path |
 | `loaders.js` | Load `.md`, `.txt`, `.pdf` recursively from a directory |
 | `splitter.js` | `RecursiveCharacterTextSplitter` (size/overlap from config) |
-| `embeddings.js` | Gemini embeddings |
+| `embeddings.js` | OpenAI embeddings |
 | `vectorstore.js` | Pinecone client + `PineconeStore` |
 | `ingest.js` | CLI: chunk → embed → upsert into a Pinecone **namespace** |
-| `qa.js` | Retrieve → build prompt → Gemini chat |
+| `qa.js` | Retrieve → build prompt → OpenAI chat |
 | `knowledge/` | Default content tree (`rules/` + `info/`) — see `knowledge/README.md` |
 | `menu/` | Menu text for ingestion — see `menu/README.md` |
 
@@ -22,9 +22,9 @@ Set in `.env` / `.env.local` (see repo root `.env.example`).
 
 | Variable | Required | Notes |
 |----------|----------|--------|
-| `GEMINI_API_KEY` | Yes | Gemini + embeddings |
-| `GEMINI_MODEL` | No | Default `gemini-2.0-flash` |
-| `GEMINI_EMBEDDING_MODEL` | No | Default `gemini-embedding-001` |
+| `OPENAI_API_KEY` | Yes | Chat + embeddings |
+| `OPENAI_MODEL` | No | Default `gpt-4o-mini` |
+| `OPENAI_EMBEDDING_MODEL` | No | Default `text-embedding-3-small` |
 | `PINECONE_API_KEY` | Yes | |
 | `PINECONE_INDEX` | Yes | Lowercased in config |
 | `PINECONE_NAMESPACE` | No | Default `default`; used for ingest when `--namespace` omitted |
@@ -34,6 +34,8 @@ Set in `.env` / `.env.local` (see repo root `.env.example`).
 ## Ingestion
 
 Requires Node **≥ 20** (see root `package.json` `engines`).
+
+**After switching embedding provider** (e.g. Gemini → OpenAI), clear or replace Pinecone namespaces and re-ingest so vectors match the new embedding model.
 
 **Knowledge + rules/info** (default path from env):
 

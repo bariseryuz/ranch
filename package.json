@@ -18,10 +18,9 @@
     "rag:ingest:all": "node server/rag/ingest.js --path server/rag/knowledge && node server/rag/ingest.js --path server/rag/menu"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.24.0",
     "@langchain/community": "^1.1.27",
     "@langchain/core": "^1.1.40",
-    "@langchain/google-genai": "^2.1.27",
+    "@langchain/openai": "^1.6.2",
     "@langchain/pinecone": "^1.0.1",
     "@langchain/textsplitters": "^1.0.1",
     "@pinecone-database/pinecone": "^5.1.2",

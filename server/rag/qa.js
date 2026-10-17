@@ -1,4 +1,4 @@
-import { ChatGoogleGenerativeAI } from '@langchain/google-genai';
+import { ChatOpenAI } from '@langchain/openai';
 
 import { RAG } from './config.js';
 import { createEmbeddings } from './embeddings.js';
@@ -61,8 +61,8 @@ async function retrieveMerged({ embeddings, question, namespaces, topK }) {
 }
 
 function createChatModel() {
-  return new ChatGoogleGenerativeAI({
-    apiKey: RAG.geminiApiKey(),
+  return new ChatOpenAI({
+    apiKey: RAG.openaiApiKey(),
     model: RAG.chatModel(),
     temperature: 0.3,
   });

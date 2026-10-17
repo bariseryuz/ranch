@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-import pdf from 'pdf-parse';
+import { PDFParse } from 'pdf-parse';
 import { Document } from '@langchain/core/documents';
 
 async function listFilesRecursive(rootPath) {
@@ -30,14 +30,19 @@ async function loadOne(filePath) {
 
   if (ext === '.pdf') {
     const buf = await fs.readFile(filePath);
-    const data = await pdf(buf);
-    const text = typeof data?.text === 'string' ? data.text : '';
-    return [
-      new Document({
-        pageContent: text,
-        metadata: { source: filePath, type: 'pdf' },
-      }),
-    ];
+    const parser = new PDFParse({ data: buf });
+    try {
+      const data = await parser.getText();
+      const text = typeof data?.text === 'string' ? data.text : '';
+      return [
+        new Document({
+          pageContent: text,
+          metadata: { source: filePath, type: 'pdf' },
+        }),
+      ];
+    } finally {
+      await parser.destroy();
+    }
   }
 
   if (ext === '.txt' || ext === '.md') {

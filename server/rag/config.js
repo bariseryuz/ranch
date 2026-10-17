@@ -8,10 +8,10 @@ export function getEnv(name, { required = false, defaultValue } = {}) {
 }
 
 export const RAG = {
-  geminiApiKey: () => getEnv('GEMINI_API_KEY', { required: true }),
-  chatModel: () => getEnv('GEMINI_MODEL', { defaultValue: 'gemini-2.0-flash' }),
+  openaiApiKey: () => getEnv('OPENAI_API_KEY', { required: true }),
+  chatModel: () => getEnv('OPENAI_MODEL', { defaultValue: 'gpt-4o-mini' }),
   embeddingModel: () =>
-    getEnv('GEMINI_EMBEDDING_MODEL', { defaultValue: 'gemini-embedding-001' }),
+    getEnv('OPENAI_EMBEDDING_MODEL', { defaultValue: 'text-embedding-3-small' }),
   pineconeApiKey: () => getEnv('PINECONE_API_KEY', { required: true }),
   pineconeIndex: () => getEnv('PINECONE_INDEX', { required: true })?.toLowerCase(),
   pineconeNamespace: () => getEnv('PINECONE_NAMESPACE', { defaultValue: 'default' }),
@@ -29,4 +29,3 @@ export const RAG = {
   chunkSize: 1000,
   chunkOverlap: 200,
 };
-

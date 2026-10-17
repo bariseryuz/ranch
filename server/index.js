@@ -1,5 +1,5 @@
 /**
- * Production: static SPA + POST /api/concierge (Gemini).
+ * Production: static SPA + POST /api/concierge (OpenAI).
  * Local + Vite: set CONCIERGE_API_ONLY=true to serve only /api (see package.json dev:api).
  */
 import fs from 'node:fs';
