@@ -113,7 +113,7 @@
 .nav-left,
 .nav-right {
   display: flex;
-  gap: clamp(16px, 2vw, 40px);
+  gap: clamp(10px, 1.4vw, 28px);
   align-items: center;
 }
 
@@ -179,6 +179,11 @@
   color: var(--gold) !important;
 }
 
+.nav-dropdown__item--cta {
+  color: var(--gold);
+  border-top: 1px solid rgba(197, 160, 89, 0.35);
+}
+
 .nav-right {
   justify-content: flex-end;
 }
@@ -187,8 +192,8 @@
   text-decoration: none;
   color: inherit;
   text-transform: uppercase;
-  font-size: 0.7rem;
-  letter-spacing: 2px;
+  font-size: 0.65rem;
+  letter-spacing: 1.6px;
   transition: color 0.3s ease;
   white-space: nowrap;
 }
@@ -248,7 +253,7 @@
   display: none;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1280px) {
   .nav-desktop {
     display: none;
   }

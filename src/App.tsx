@@ -19,6 +19,11 @@ const JournalPost            = lazy(() => import('./pages/JournalPost.tsx'));
 const PlanYourEvent          = lazy(() => import('./pages/PlanYourEvent.tsx'));
 const BookRoomNow            = lazy(() => import('./pages/BookRoomNow.tsx'));
 const EventPlanner           = lazy(() => import('./pages/EventPlanner.tsx'));
+const LodgePage              = lazy(() => import('./pages/LodgePage.tsx'));
+const RVParkPage             = lazy(() => import('./pages/RVParkPage.tsx'));
+const RestaurantPage         = lazy(() => import('./pages/RestaurantPage.tsx'));
+const EventsPage             = lazy(() => import('./pages/EventsPage.tsx'));
+const DirectionsPage         = lazy(() => import('./pages/DirectionsPage.tsx'));
 
 function App() {
   return (
@@ -36,6 +41,11 @@ function App() {
             <Route path="/private-events"      element={<PrivateEvents />} />
             <Route path="/culinary"            element={<CulinaryPage />} />
             <Route path="/accommodations"      element={<AccommodationsPage />} />
+            <Route path="/lodge"               element={<LodgePage />} />
+            <Route path="/rv-park"             element={<RVParkPage />} />
+            <Route path="/restaurant"          element={<RestaurantPage />} />
+            <Route path="/events"              element={<EventsPage />} />
+            <Route path="/directions"          element={<DirectionsPage />} />
             <Route path="/gallery"             element={<GalleryPage />} />
             <Route path="/journal"             element={<Journal />} />
             <Route path="/journal/:slug"       element={<JournalPost />} />

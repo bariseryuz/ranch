@@ -22,6 +22,9 @@ const Footer = () => {
             <Link to="/tailored-gatherings">Tailored Gatherings</Link>
             <Link to="/culinary">Culinary</Link>
             <Link to="/accommodations">Accommodations</Link>
+            <Link to="/lodge">Lodge</Link>
+            <Link to="/rv-park">RV Park</Link>
+            <Link to="/restaurant">Restaurant & Bar</Link>
             <Link to="/gallery">Gallery</Link>
           </div>
           <div>
@@ -29,12 +32,14 @@ const Footer = () => {
             <Link to="/corporate-retreats">Corporate Retreats</Link>
             <Link to="/luxury-weddings">Luxury Weddings</Link>
             <Link to="/private-events">Private Events</Link>
-            <Link to="/plan-your-event?tab=ai">AI Event Planner</Link>
+            <Link to="/events">Events</Link>
+            <Link to="/plan-your-event">Concierge Inquiry</Link>
           </div>
           <div>
             <h4>Connect</h4>
             <Link to="/journal">Journal</Link>
-            <Link to="/plan-your-event">Plan Your Event</Link>
+            <Link to="/directions">Directions</Link>
+            <Link to="/book-room-now">Book Room Now</Link>
             <a href="mailto:info@briggsbrothersranch.com">info@briggsbrothersranch.com</a>
             <a href="tel:+14236237543" className="site-footer__phone">
               423-623-7543

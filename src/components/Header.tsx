@@ -23,6 +23,12 @@ const EXPERIENCE_LINKS = [
   { to: '/tailored-gatherings', label: 'Gatherings' },
 ] as const;
 
+const ACCOMMODATION_LINKS = [
+  { to: '/lodge', label: 'Lodge' },
+  { to: '/rv-park', label: 'RV Park' },
+  { to: '/book-room-now', label: 'Book Room Now' },
+] as const;
+
 function isLargeLogoRoute(pathname: string) {
   if (LARGE_LOGO_PATHS.has(pathname)) return true;
   if (pathname === '/journal' || pathname.startsWith('/journal/')) return true;
@@ -33,12 +39,14 @@ const Header = () => {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const [experiencesOpen, setExperiencesOpen] = useState(false);
+  const [accommodationsOpen, setAccommodationsOpen] = useState(false);
   const isHome = pathname === '/';
   const largeLogo = !isHome && isLargeLogoRoute(pathname);
 
   const close = () => {
     setOpen(false);
     setExperiencesOpen(false);
+    setAccommodationsOpen(false);
   };
 
   useEffect(() => {
@@ -116,14 +124,40 @@ const Header = () => {
       </Link>
 
       <div className="nav-right nav-desktop">
-        <Link to="/accommodations" onClick={close}>
-          Stay
+        <div className="nav-dropdown">
+          <Link
+            to="/accommodations"
+            className="nav-dropdown__trigger"
+            aria-haspopup="menu"
+            onClick={close}
+          >
+            Accommodations
+          </Link>
+          <div className="nav-dropdown__panel" role="menu">
+            {ACCOMMODATION_LINKS.map(({ to, label }) => (
+              <Link
+                key={to}
+                to={to}
+                className={`nav-dropdown__item ${to === '/book-room-now' ? 'nav-dropdown__item--cta' : ''}`}
+                role="menuitem"
+                onClick={close}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <Link to="/restaurant" onClick={close}>
+          Restaurant & Bar
+        </Link>
+        <Link to="/events" onClick={close}>
+          Events
+        </Link>
+        <Link to="/directions" onClick={close}>
+          Directions
         </Link>
         <Link to="/plan-your-event" onClick={close}>
           Concierge Inquiry
-        </Link>
-        <Link to="/book-room-now" className="cta-link" onClick={close}>
-          Book Room Now
         </Link>
       </div>
 
@@ -187,6 +221,42 @@ const Header = () => {
 
           <div className="main-header__nav-divider" aria-hidden />
 
+          <div className="main-header__nav-group">
+            <button
+              type="button"
+              className={`main-header__mobile-link main-header__nav-toggle ${accommodationsOpen ? 'is-open' : ''}`}
+              aria-expanded={accommodationsOpen}
+              onClick={() => setAccommodationsOpen((o) => !o)}
+            >
+              <span>Accommodations</span>
+              <span className="main-header__nav-chevron" aria-hidden />
+            </button>
+            <div className={`main-header__subnav ${accommodationsOpen ? 'is-open' : ''}`}>
+              <div className="main-header__subnav-inner">
+                <Link to="/accommodations" className="main-header__subnav-link" onClick={close}>
+                  All Accommodations
+                </Link>
+                {ACCOMMODATION_LINKS.map(({ to, label }) => (
+                  <Link key={to} to={to} className="main-header__subnav-link" onClick={close}>
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <Link to="/restaurant" className="main-header__mobile-link" onClick={close}>
+            Restaurant & Bar
+          </Link>
+          <Link to="/events" className="main-header__mobile-link" onClick={close}>
+            Events
+          </Link>
+          <Link to="/directions" className="main-header__mobile-link" onClick={close}>
+            Directions
+          </Link>
+
+          <div className="main-header__nav-divider" aria-hidden />
+
           <Link to="/corporate-retreats" className="main-header__mobile-link" onClick={close}>
             Corporate Retreats
           </Link>
@@ -195,9 +265,6 @@ const Header = () => {
           </Link>
           <Link to="/private-events" className="main-header__mobile-link" onClick={close}>
             Private Events
-          </Link>
-          <Link to="/accommodations" className="main-header__mobile-link" onClick={close}>
-            Accommodations
           </Link>
 
           <div className="main-header__nav-divider" aria-hidden />
@@ -208,12 +275,8 @@ const Header = () => {
           <Link to="/journal" className="main-header__mobile-link" onClick={close}>
             Journal
           </Link>
-          <Link to="/plan-your-event" className="main-header__mobile-link" onClick={close}>
+          <Link to="/plan-your-event" className="main-header__mobile-cta" onClick={close}>
             Concierge Inquiry
-          </Link>
-
-          <Link to="/book-room-now" className="main-header__mobile-cta" onClick={close}>
-            Book Room Now
           </Link>
         </nav>
       </div>
