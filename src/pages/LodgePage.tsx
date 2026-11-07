@@ -1,23 +1,38 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta.ts';
-import PageHero from '../components/PageHero.tsx';
+import PhotoHeroSlider from '../components/PhotoHeroSlider.tsx';
+import LittleHotelierWidget from '../components/LittleHotelierWidget.tsx';
 import '../styles/editorial.css';
+import './LodgePage.css';
+
+const base = import.meta.env.BASE_URL;
+
+const slides = [
+  {
+    src: `${base}Lodge/lodge-porch.jpg`,
+    alt: 'Lodge porch with rocking chairs at Briggs Brothers Ranch',
+  },
+  {
+    src: `${base}Lodge/lodge-exterior.jpg`,
+    alt: 'Lodge exterior from the path at golden hour at Briggs Brothers Ranch',
+  },
+];
 
 export default function LodgePage() {
   usePageMeta({
     title: 'The Lodge',
     description:
-      'Lodge lodging at Briggs Brothers Ranch — a comfortable ranch stay for weekends, retreats, and private gatherings.',
-    keywords: 'ranch lodge, briggs brothers ranch lodge, ranch lodging tennessee',
+      'Book a lodge stay at Briggs Brothers Ranch — rooms on the estate with restaurant and bar nearby.',
+    keywords: 'ranch lodge booking, briggs brothers ranch lodge, book ranch room',
   });
 
   return (
     <>
-      <PageHero
+      <PhotoHeroSlider
         title="The Lodge"
-        subtitle="Ranch lodging · Quiet nights"
-        image={`${import.meta.env.BASE_URL}RanchLifestyle/3.png`}
-        imageAlt="Lodge lodging at Briggs Brothers Ranch"
+        subtitle="Ranch lodging · Book a room"
+        ariaLabel="Lodge photos"
+        slides={slides}
       />
       <article className="page-section">
         <h2>A lodge stay on the estate</h2>
@@ -28,18 +43,33 @@ export default function LodgePage() {
         </p>
         <p>
           It suits couples, small groups, and hosts who need a home base for a weekend, a retreat,
-          or a celebration. For a full look at lodging options, visit Accommodations. To reserve a
-          room, use Book Room Now.
+          or a celebration. Choose dates below to book your room directly.
         </p>
         <div className="cta-row">
-          <Link to="/book-room-now" className="primary">
+          <a href="#book-room" className="primary">
             Book Room Now
-          </Link>
-          <Link to="/accommodations" className="secondary">
-            All accommodations
+          </a>
+          <Link to="/rv-park" className="secondary">
+            RV Park
           </Link>
         </div>
       </article>
+
+      <section id="book-room" className="lodge-book" aria-labelledby="lodge-book-title">
+        <div className="lodge-book__inner">
+          <p className="lodge-book__eyebrow">Reserve your stay</p>
+          <h2 id="lodge-book-title" className="lodge-book__title">
+            Book Room Now
+          </h2>
+          <p className="lodge-book__lede">
+            Select your dates, room, and guests. Booking is confirmed on the ranch — no third-party
+            listing required.
+          </p>
+          <div className="lodge-book__frame">
+            <LittleHotelierWidget />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

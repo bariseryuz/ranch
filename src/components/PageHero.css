@@ -82,6 +82,10 @@
   object-position: center 74%;
 }
 
+.page-hero__img[src*='Lodge/lodge-porch'] {
+  object-position: center 42%;
+}
+
 @media (max-width: 768px) {
   .page-hero__img[src*='eventsetup.png'] {
     object-position: center 70%;

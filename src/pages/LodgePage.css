@@ -1,0 +1,57 @@
+.lodge-book {
+  background: linear-gradient(180deg, #f2e9e1 0%, var(--warm-ivory) 100%);
+  border-top: 1px solid rgba(197, 160, 89, 0.28);
+  padding: clamp(3rem, 8vw, 5rem) 0 clamp(4rem, 10vw, 6.5rem);
+}
+
+.lodge-book__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 2rem);
+}
+
+.lodge-book__eyebrow {
+  display: block;
+  margin: 0 0 0.75rem;
+  text-align: center;
+  font-family: var(--font-secondary);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.lodge-book__title {
+  margin: 0 0 0.85rem;
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--saddle-brown);
+}
+
+.lodge-book__lede {
+  max-width: 36rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  font-weight: 300;
+  color: rgba(93, 58, 26, 0.82);
+}
+
+.lodge-book__frame {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  box-shadow: 0 18px 48px rgba(45, 28, 12, 0.1);
+}
+
+.lodge-book__frame .lh-widget--embed {
+  margin: 0;
+}
+
+.lodge-book__frame .lh-widget--unconfigured {
+  border: none;
+}

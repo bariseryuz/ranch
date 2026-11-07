@@ -7,7 +7,7 @@ const events1311Logo = `${import.meta.env.BASE_URL}1311/1311.png`;
 
 export default function EventsPage() {
   usePageMeta({
-    title: 'Events',
+    title: 'Event Calendar',
     description:
       'Tailor-made events at Briggs Brothers Ranch with 1311 Events — weddings, retreats, and horse events at the barn.',
     keywords: 'ranch events, 1311 events, horse events barn, briggs brothers ranch venue',

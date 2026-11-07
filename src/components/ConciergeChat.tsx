@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, type ReactNode } from 'react';
 import { fetchConciergeReply } from '../utils/conciergeApi.ts';
 import { getConciergeReply } from '../utils/conciergeResponses.ts';
+import { OPEN_CONCIERGE_CHAT_EVENT } from '../utils/openConciergeChat.ts';
 import './ConciergeChat.css';
 
 type Msg = { role: 'user' | 'assistant'; text: string };
@@ -60,6 +61,12 @@ export default function ConciergeChat() {
       return () => clearTimeout(t);
     }
   }, [open]);
+
+  useEffect(() => {
+    const onOpen = () => setOpen(true);
+    window.addEventListener(OPEN_CONCIERGE_CHAT_EVENT, onOpen);
+    return () => window.removeEventListener(OPEN_CONCIERGE_CHAT_EVENT, onOpen);
+  }, []);
 
   const send = async () => {
     const t = input.trim();

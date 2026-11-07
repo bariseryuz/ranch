@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import OpenConciergeButton from './OpenConciergeButton.tsx';
 import './Header.css';
 
 const logoUrl = `${import.meta.env.BASE_URL}logo.png`;
@@ -7,6 +8,7 @@ const logoUrl = `${import.meta.env.BASE_URL}logo.png`;
 /** Inner routes where the header mark is shown at 2× the default solid-bar size */
 const LARGE_LOGO_PATHS = new Set([
   '/experiences',
+  '/barn',
   '/the-ranch',
   '/legacy',
   '/culinary',
@@ -17,6 +19,7 @@ const LARGE_LOGO_PATHS = new Set([
 ]);
 
 const EXPERIENCE_LINKS = [
+  { to: '/barn', label: 'Barn' },
   { to: '/the-ranch', label: 'The Ranch' },
   { to: '/legacy', label: 'Legacy' },
   { to: '/culinary', label: 'Culinary' },
@@ -26,7 +29,6 @@ const EXPERIENCE_LINKS = [
 const ACCOMMODATION_LINKS = [
   { to: '/lodge', label: 'Lodge' },
   { to: '/rv-park', label: 'RV Park' },
-  { to: '/book-room-now', label: 'Book Room Now' },
 ] as const;
 
 function isLargeLogoRoute(pathname: string) {
@@ -135,13 +137,7 @@ const Header = () => {
           </Link>
           <div className="nav-dropdown__panel" role="menu">
             {ACCOMMODATION_LINKS.map(({ to, label }) => (
-              <Link
-                key={to}
-                to={to}
-                className={`nav-dropdown__item ${to === '/book-room-now' ? 'nav-dropdown__item--cta' : ''}`}
-                role="menuitem"
-                onClick={close}
-              >
+              <Link key={to} to={to} className="nav-dropdown__item" role="menuitem" onClick={close}>
                 {label}
               </Link>
             ))}
@@ -151,14 +147,14 @@ const Header = () => {
           Restaurant & Bar
         </Link>
         <Link to="/events" onClick={close}>
-          Events
+          Event Calendar
         </Link>
         <Link to="/directions" onClick={close}>
           Directions
         </Link>
-        <Link to="/plan-your-event" onClick={close}>
+        <OpenConciergeButton className="concierge-inquiry-btn" onClick={close}>
           Concierge Inquiry
-        </Link>
+        </OpenConciergeButton>
       </div>
 
       <button
@@ -233,9 +229,6 @@ const Header = () => {
             </button>
             <div className={`main-header__subnav ${accommodationsOpen ? 'is-open' : ''}`}>
               <div className="main-header__subnav-inner">
-                <Link to="/accommodations" className="main-header__subnav-link" onClick={close}>
-                  All Accommodations
-                </Link>
                 {ACCOMMODATION_LINKS.map(({ to, label }) => (
                   <Link key={to} to={to} className="main-header__subnav-link" onClick={close}>
                     {label}
@@ -249,7 +242,7 @@ const Header = () => {
             Restaurant & Bar
           </Link>
           <Link to="/events" className="main-header__mobile-link" onClick={close}>
-            Events
+            Event Calendar
           </Link>
           <Link to="/directions" className="main-header__mobile-link" onClick={close}>
             Directions
@@ -275,9 +268,9 @@ const Header = () => {
           <Link to="/journal" className="main-header__mobile-link" onClick={close}>
             Journal
           </Link>
-          <Link to="/plan-your-event" className="main-header__mobile-cta" onClick={close}>
+          <OpenConciergeButton className="main-header__mobile-cta" onClick={close}>
             Concierge Inquiry
-          </Link>
+          </OpenConciergeButton>
         </nav>
       </div>
     </header>

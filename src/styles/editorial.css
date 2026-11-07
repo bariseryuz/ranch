@@ -1,8 +1,11 @@
 /* Shared editorial sections for inner pages */
 .page-section {
+  position: relative;
+  z-index: 1;
   max-width: 720px;
   margin: 0 auto;
   padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
+  background: var(--warm-ivory);
 }
 
 .page-section--wide {
@@ -13,21 +16,31 @@
   min-height: 12rem;
 }
 
+.hours-strip {
+  background: var(--warm-ivory);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.28);
+}
+
 .hours-banner {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 0.75rem 1.25rem;
-  margin: 0 0 2rem;
+  margin: 0 auto;
+  max-width: 720px;
   padding: 1rem 1.25rem;
-  border: 1px solid rgba(197, 160, 89, 0.45);
-  background: rgba(197, 160, 89, 0.1);
   font-family: var(--font-secondary);
   font-size: clamp(0.95rem, 2vw, 1.15rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--saddle-brown);
+}
+
+.page-section .hours-banner {
+  margin: 0 0 2rem;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  background: rgba(197, 160, 89, 0.1);
 }
 
 .hours-banner__label {
@@ -111,7 +124,8 @@
   margin-top: 2rem;
 }
 
-.cta-row a {
+.cta-row a,
+.cta-row button {
   display: inline-block;
   padding: 14px 28px;
   font-size: 0.65rem;
@@ -121,17 +135,27 @@
   transition: 0.25s;
 }
 
-.cta-row a.primary {
+.cta-row button {
+  font: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.cta-row a.primary,
+.cta-row button.primary {
   background: var(--gold);
   color: white;
 }
 
-.cta-row a.secondary {
+.cta-row a.secondary,
+.cta-row button.secondary {
   border: 1px solid var(--saddle-brown);
   color: var(--saddle-brown);
 }
 
-.cta-row a.secondary:hover {
+.cta-row a.secondary:hover,
+.cta-row button.secondary:hover {
   background: var(--saddle-brown);
   color: var(--warm-ivory);
 }

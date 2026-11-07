@@ -1,8 +1,21 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta.ts';
-import PageHero from '../components/PageHero.tsx';
+import PhotoHeroSlider from '../components/PhotoHeroSlider.tsx';
 import Accommodations from '../components/Accommodations.tsx';
 import '../styles/editorial.css';
+
+const base = import.meta.env.BASE_URL;
+
+const slides = [
+  {
+    src: `${base}Lodge/lodge-exterior.jpg`,
+    alt: 'Lodge exterior from the path at golden hour at Briggs Brothers Ranch',
+  },
+  {
+    src: `${base}Lodge/lodge-porch.jpg`,
+    alt: 'Lodge porch with rocking chairs at Briggs Brothers Ranch',
+  },
+];
 
 export default function AccommodationsPage() {
   usePageMeta({
@@ -14,11 +27,11 @@ export default function AccommodationsPage() {
 
   return (
     <>
-      <PageHero
+      <PhotoHeroSlider
         title="Accommodations"
         subtitle="Privacy · Comfort · Western calm"
-        image={`${import.meta.env.BASE_URL}ran.png`}
-        imageAlt="Luxury ranch home"
+        ariaLabel="Accommodations photos"
+        slides={slides}
       />
       <article className="page-section">
         <h2>Stay on the estate</h2>

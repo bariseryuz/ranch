@@ -1,7 +1,28 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta.ts';
-import PageHero from '../components/PageHero.tsx';
+import PhotoHeroSlider from '../components/PhotoHeroSlider.tsx';
 import '../styles/editorial.css';
+
+const base = import.meta.env.BASE_URL;
+
+const slides = [
+  {
+    src: `${base}Dining/beer-porch.jpg`,
+    alt: 'A drink on the lodge porch overlooking the ranch',
+  },
+  {
+    src: `${base}Dining/bar-top.jpg`,
+    alt: 'The restaurant bar at Briggs Brothers Ranch',
+  },
+  {
+    src: `${base}Dining/bottle-lights.jpg`,
+    alt: 'Bottle chandelier and bar shelves at the ranch restaurant',
+  },
+  {
+    src: `${base}Dining/dinningcurrent.png`,
+    alt: 'Dining at Briggs Brothers Ranch',
+  },
+];
 
 export default function RestaurantPage() {
   usePageMeta({
@@ -13,17 +34,19 @@ export default function RestaurantPage() {
 
   return (
     <>
-      <PageHero
+      <PhotoHeroSlider
         title="Restaurant & Bar"
         subtitle="On the property · Open three nights"
-        image={`${import.meta.env.BASE_URL}Dining/dinningcurrent.png`}
-        imageAlt="Dining at Briggs Brothers Ranch"
+        ariaLabel="Restaurant and bar photos"
+        slides={slides}
       />
-      <article className="page-section">
+      <div className="hours-strip">
         <p className="hours-banner" role="status">
           <span className="hours-banner__label">Open</span>
           Thursday · Friday · Saturday
         </p>
+      </div>
+      <article className="page-section">
         <h2>A ranch restaurant and bar</h2>
         <p>
           Guests and visitors can dine and have a drink on the property. The restaurant and bar are
@@ -36,10 +59,7 @@ export default function RestaurantPage() {
           help shape something beyond regular service.
         </p>
         <div className="cta-row">
-          <Link to="/book-room-now" className="primary">
-            Book a stay
-          </Link>
-          <Link to="/events" className="secondary">
+          <Link to="/events" className="primary">
             Plan an event
           </Link>
         </div>

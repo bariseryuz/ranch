@@ -10,6 +10,12 @@ const experiencesHeroOverlay = `${base}Nature/${encodeURIComponent('Need to add 
 
 const cards = [
   {
+    to: '/barn',
+    title: 'The Barn',
+    copy: 'Working stalls, horses, and a ranch barn for horse events with 1311 Events.',
+    image: `${base}Barn/horse.jpg`,
+  },
+  {
     to: '/corporate-retreats',
     title: 'Corporate Retreats',
     copy: 'Leadership programs, team building, executive summits, and company celebrations.',

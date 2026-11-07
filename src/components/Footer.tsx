@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import OpenConciergeButton from './OpenConciergeButton.tsx';
 import './Footer.css';
 
 const Footer = () => {
@@ -16,6 +17,7 @@ const Footer = () => {
         <nav className="site-footer__nav" aria-label="Footer">
           <div>
             <h4>Discover</h4>
+            <Link to="/barn">Barn</Link>
             <Link to="/the-ranch">The Ranch</Link>
             <Link to="/legacy">Legacy</Link>
             <Link to="/experiences">Experiences</Link>
@@ -32,14 +34,16 @@ const Footer = () => {
             <Link to="/corporate-retreats">Corporate Retreats</Link>
             <Link to="/luxury-weddings">Luxury Weddings</Link>
             <Link to="/private-events">Private Events</Link>
-            <Link to="/events">Events</Link>
-            <Link to="/plan-your-event">Concierge Inquiry</Link>
+            <Link to="/events">Event Calendar</Link>
+            <OpenConciergeButton className="concierge-inquiry-btn">
+              Concierge Inquiry
+            </OpenConciergeButton>
           </div>
           <div>
             <h4>Connect</h4>
             <Link to="/journal">Journal</Link>
             <Link to="/directions">Directions</Link>
-            <Link to="/book-room-now">Book Room Now</Link>
+            <Link to="/lodge#book-room">Book Room Now</Link>
             <a href="mailto:info@briggsbrothersranch.com">info@briggsbrothersranch.com</a>
             <a href="tel:+14236237543" className="site-footer__phone">
               423-623-7543

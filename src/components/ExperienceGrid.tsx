@@ -11,6 +11,18 @@ function publicAsset(...segments: string[]) {
 
 const experiences = [
   {
+    title: 'The Barn',
+    to: '/barn',
+    image: `${base}Barn/horse.jpg`,
+    features: [
+      'Working ranch stalls',
+      'Horses on the property',
+      'Horse events at the barn',
+      'Produced with 1311 Events',
+    ],
+    extra: 'Timber stalls • Aisle • Land and horses together',
+  },
+  {
     title: 'Corporate Retreats',
     to: '/corporate-retreats',
     image: `${base}eventsetup.png`,

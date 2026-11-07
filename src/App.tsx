@@ -4,6 +4,7 @@ import Home from './pages/Home.tsx';
 import InnerLayout from './components/InnerLayout.tsx';
 import ConciergeChat from './components/ConciergeChat.tsx';
 
+const BarnPage               = lazy(() => import('./pages/BarnPage.tsx'));
 const TheRanch               = lazy(() => import('./pages/TheRanch.tsx'));
 const LegacyPage             = lazy(() => import('./pages/LegacyPage.tsx'));
 const ExperiencesHub         = lazy(() => import('./pages/ExperiencesHub.tsx'));
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route element={<InnerLayout />}>
+            <Route path="/barn"                element={<BarnPage />} />
             <Route path="/the-ranch"           element={<TheRanch />} />
             <Route path="/legacy"              element={<LegacyPage />} />
             <Route path="/experiences"         element={<ExperiencesHub />} />
