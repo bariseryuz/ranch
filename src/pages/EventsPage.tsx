@@ -6,7 +6,7 @@ import '../styles/editorial.css';
 
 type CalendarEvent = {
   title: string;
-  dates: string;
+  dates?: string;
   range: string;
   note?: string;
 };
@@ -70,19 +70,19 @@ const vertilux: CalendarEvent[] = [
 ];
 
 const upcoming: CalendarEvent[] = [
-  { title: '5K Run', dates: 'Date to be announced', range: 'Coming in 2027' },
-  { title: 'Jackpot Series', dates: 'Date to be announced', range: 'Coming in 2027' },
-  { title: 'Walking Horse Show', dates: 'Date to be announced', range: 'Coming in 2027' },
-  { title: 'Competitive Trail Ride', dates: 'Date to be announced', range: 'Coming in 2027' },
-  { title: 'Endurance Ride', dates: 'Date to be announced', range: 'Coming in 2027' },
+  { title: '5K Run', range: 'Coming in 2027' },
+  { title: 'Jackpot Series', range: 'Coming in 2027' },
+  { title: 'Walking Horse Show', range: 'Coming in 2027' },
+  { title: 'Competitive Trail Ride', range: 'Coming in 2027' },
+  { title: 'Endurance Ride', range: 'Coming in 2027' },
 ];
 
 function EventList({ events }: { events: CalendarEvent[] }) {
   return (
     <ol className="event-calendar">
       {events.map((event) => (
-        <li key={`${event.title}-${event.dates}`} className="event-calendar__item">
-          <p className="event-calendar__dates">{event.dates}</p>
+        <li key={`${event.title}-${event.dates ?? event.range}`} className="event-calendar__item">
+          {event.dates ? <p className="event-calendar__dates">{event.dates}</p> : null}
           <h4 className="event-calendar__title">{event.title}</h4>
           <p className="event-calendar__range">{event.range}</p>
           {event.note ? <p className="event-calendar__note">{event.note}</p> : null}
@@ -141,7 +141,7 @@ export default function EventsPage() {
             Dates to come
           </h3>
           <p className="event-calendar__lead">
-            These events are expected on the ranch. Dates are not yet finalized.
+            Please stay updated for our upcoming events in 2027.
           </p>
           <EventList events={upcoming} />
         </section>
