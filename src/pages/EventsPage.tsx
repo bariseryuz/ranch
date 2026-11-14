@@ -1,80 +1,168 @@
 import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta.ts';
 import PageHero from '../components/PageHero.tsx';
+import OpenConciergeButton from '../components/OpenConciergeButton.tsx';
 import '../styles/editorial.css';
 
-const events1311Logo = `${import.meta.env.BASE_URL}1311/1311.png`;
+type CalendarEvent = {
+  title: string;
+  dates: string;
+  range: string;
+  note?: string;
+};
+
+const clinicWeekends: CalendarEvent[] = [
+  {
+    title: 'Clinic weekend',
+    dates: 'April 23–25, 2027',
+    range: 'Friday through Sunday',
+    note: 'The lodge is blocked for this weekend. Guests should check Lodge booking for any openings.',
+  },
+  {
+    title: 'Clinic weekend',
+    dates: 'May 7–9, 2027',
+    range: 'Friday through Sunday',
+    note: 'The lodge is blocked for this weekend. Guests should check Lodge booking for any openings.',
+  },
+];
+
+const seasonLocalShows: CalendarEvent[] = [
+  {
+    title: 'Season local show',
+    dates: 'June 12, 2027',
+    range: 'Saturday',
+  },
+  {
+    title: 'Season local show',
+    dates: 'July 10, 2027',
+    range: 'Saturday',
+  },
+  {
+    title: 'Season local show',
+    dates: 'August 14, 2027',
+    range: 'Saturday',
+  },
+  {
+    title: 'Season local show',
+    dates: 'September 11, 2027',
+    range: 'Saturday',
+  },
+  {
+    title: 'Season local show',
+    dates: 'October 9, 2027',
+    range: 'Saturday',
+  },
+  {
+    title: 'Season banquet',
+    dates: 'November 6, 2027',
+    range: 'Saturday',
+    note: 'The restaurant is booked that night.',
+  },
+];
+
+const vertilux: CalendarEvent[] = [
+  {
+    title: 'VERTILUX',
+    dates: 'July 12–18, 2027',
+    range: 'Monday through Sunday',
+    note: 'The lodge is blocked for this week.',
+  },
+];
+
+const upcoming: CalendarEvent[] = [
+  { title: '5K Run', dates: 'Date to be announced', range: 'Coming in 2027' },
+  { title: 'Jackpot Series', dates: 'Date to be announced', range: 'Coming in 2027' },
+  { title: 'Walking Horse Show', dates: 'Date to be announced', range: 'Coming in 2027' },
+  { title: 'Competitive Trail Ride', dates: 'Date to be announced', range: 'Coming in 2027' },
+  { title: 'Endurance Ride', dates: 'Date to be announced', range: 'Coming in 2027' },
+];
+
+function EventList({ events }: { events: CalendarEvent[] }) {
+  return (
+    <ol className="event-calendar">
+      {events.map((event) => (
+        <li key={`${event.title}-${event.dates}`} className="event-calendar__item">
+          <p className="event-calendar__dates">{event.dates}</p>
+          <h4 className="event-calendar__title">{event.title}</h4>
+          <p className="event-calendar__range">{event.range}</p>
+          {event.note ? <p className="event-calendar__note">{event.note}</p> : null}
+        </li>
+      ))}
+    </ol>
+  );
+}
 
 export default function EventsPage() {
   usePageMeta({
     title: 'Event Calendar',
     description:
-      'Tailor-made events at Briggs Brothers Ranch with 1311 Events — weddings, retreats, and horse events at the barn.',
-    keywords: 'ranch events, 1311 events, horse events barn, briggs brothers ranch venue',
+      '2027 event calendar for Briggs Brothers Ranch — clinic weekends, season local shows, VERTILUX, and upcoming gatherings in Parrottsville, Tennessee.',
+    keywords: 'briggs brothers ranch events, ranch event calendar, clinic weekend, season local shows',
   });
 
   return (
     <>
       <PageHero
-        title="Events"
-        subtitle="Tailor-made · 1311 Events · The barn"
+        title="Event Calendar"
+        subtitle="Upcoming on the ranch · 2027"
         image={`${import.meta.env.BASE_URL}Weddings/Event%20Setup%201.png`}
         imageAlt="Event setup at Briggs Brothers Ranch"
       />
       <article className="page-section">
-        <h2>Make the ranch yours</h2>
+        <h2>2027 calendar</h2>
         <p>
-          Briggs Brothers Ranch is built for gatherings of almost any kind — weddings, corporate
-          retreats, private celebrations, and weekend buyouts. Guests work with our sister company{' '}
-          <a href="https://1311events.com/" target="_blank" rel="noopener noreferrer">
-            1311 Events
-          </a>{' '}
-          to tailor-make the event they want: layout, rentals, food and drink, staffing, and the
-          details that make the day feel considered rather than generic.
+          Confirmed dates for gatherings on the ranch this season. Additional events will appear
+          here as they are set.
         </p>
-        <p>
-          Tell us the occasion, guest count, and dates. 1311 shapes production around the land —
-          ceremony spots, tented receptions, dinners, and full-service setups — so the ranch stays
-          the setting and the event is built to your brief.
-        </p>
-      </article>
-      <div className="page-columns">
-        <div>
-          <h3>Horse events & the barn</h3>
-          <p>
-            The facility is a strong home for horse events. We have a barn on the property, and the
-            ranch setting suits clinics, gatherings, and celebrations that want horses and land in
-            the same picture — not a hotel ballroom.
+
+        <section className="event-calendar-group" aria-labelledby="clinic-weekends-heading">
+          <h3 id="clinic-weekends-heading" className="event-calendar__section">
+            Clinic weekends
+          </h3>
+          <EventList events={clinicWeekends} />
+        </section>
+
+        <section className="event-calendar-group" aria-labelledby="season-shows-heading">
+          <h3 id="season-shows-heading" className="event-calendar__section">
+            Season local shows
+          </h3>
+          <EventList events={seasonLocalShows} />
+        </section>
+
+        <section className="event-calendar-group" aria-labelledby="vertilux-heading">
+          <h3 id="vertilux-heading" className="event-calendar__section">
+            VERTILUX
+          </h3>
+          <EventList events={vertilux} />
+        </section>
+
+        <section className="event-calendar-group" aria-labelledby="upcoming-heading">
+          <h3 id="upcoming-heading" className="event-calendar__section">
+            Dates to come
+          </h3>
+          <p className="event-calendar__lead">
+            These events are expected on the ranch. Dates are not yet finalized.
           </p>
-        </div>
-        <div>
-          <h3>With 1311 Events</h3>
+          <EventList events={upcoming} />
+        </section>
+
+        <section className="event-calendar-group" aria-labelledby="lodge-availability-heading">
+          <h3 id="lodge-availability-heading" className="event-calendar__section">
+            Lodge availability
+          </h3>
           <p>
-            <img
-              src={events1311Logo}
-              alt="1311 Events"
-              width={72}
-              height={72}
-              style={{ display: 'block', marginBottom: '1rem' }}
-            />
-            From tents and tables to chefs and bar service, 1311 Events builds the production so
-            you can host the ranch event you actually have in mind.
+            Current lodge openings are on the website — see the{' '}
+            <Link to="/lodge">Lodge</Link> page and{' '}
+            <Link to="/lodge#book-room">Book Room</Link>. Restaurant and grounds holds are not
+            shown in the lodging calendar.
           </p>
-        </div>
-      </div>
-      <article className="page-section">
+        </section>
+
         <div className="cta-row">
-          <Link to="/plan-your-event" className="primary">
-            Start an inquiry
+          <OpenConciergeButton className="primary">Inquire about an event</OpenConciergeButton>
+          <Link to="/lodge#book-room" className="secondary">
+            Book a lodge room
           </Link>
-          <a
-            href="https://1311events.com/"
-            className="secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Visit 1311 Events
-          </a>
         </div>
       </article>
     </>

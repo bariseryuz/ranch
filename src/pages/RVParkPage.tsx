@@ -54,15 +54,19 @@ export default function RVParkPage() {
         </p>
         <p>
           Ask about availability and site details when you book, or send a concierge inquiry if you
-          are pairing an RV stay with an event.
+          are pairing an RV stay with an event. Ranch lodging uses the same Little Hotelier booking
+          engine as the lodge.
         </p>
         <div className="cta-row">
-          <OpenConciergeButton className="primary">
+          <Link to="/lodge#book-room" className="primary">
+            Book Room Now
+          </Link>
+          <Link to="/barn" className="secondary">
+            The Barn
+          </Link>
+          <OpenConciergeButton className="secondary">
             Concierge inquiry
           </OpenConciergeButton>
-          <Link to="/lodge" className="secondary">
-            The Lodge
-          </Link>
         </div>
       </article>
     </>

@@ -86,14 +86,14 @@ const experiences = [
   {
     title: 'Accommodations',
     to: '/accommodations',
-    image: `${base}Glamping.jpeg`,
+    image: `${base}Lodge/lodge-porch.jpg`,
     features: [
-      'Luxury ranch homes',
-      'Guest cabins',
-      'Glamping & suites',
-      'Weekend wedding lodging',
+      'The Lodge',
+      'The Barn',
+      'RV Park',
+      'Book through Little Hotelier',
     ],
-    extra: 'Comfort • Discretion • Ranch-house hospitality',
+    extra: 'Lodge rooms • Barn • RV sites',
   },
 ];
 

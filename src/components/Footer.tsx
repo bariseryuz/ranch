@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import OpenConciergeButton from './OpenConciergeButton.tsx';
+import { RANCH_ADDRESS_LINES, RANCH_MAPS_URL } from '../data/location.ts';
 import './Footer.css';
 
 const Footer = () => {
@@ -43,22 +44,23 @@ const Footer = () => {
             <h4>Connect</h4>
             <Link to="/journal">Journal</Link>
             <Link to="/directions">Directions</Link>
+            <Link to="/directions#map">Map</Link>
             <Link to="/lodge#book-room">Book Room Now</Link>
             <a href="mailto:info@briggsbrothersranch.com">info@briggsbrothersranch.com</a>
             <a href="tel:+14236237543" className="site-footer__phone">
               423-623-7543
             </a>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=961+Browns+Chapel+Road%2C+Parrottsville%2C+TN+37843%2C+United+States"
+              href={RANCH_MAPS_URL}
               className="site-footer__address"
               target="_blank"
               rel="noopener noreferrer"
             >
-              961 Browns Chapel Road
+              {RANCH_ADDRESS_LINES[0]}
               <br />
-              Parrottsville, TN 37843
+              {RANCH_ADDRESS_LINES[1]}
               <br />
-              United States
+              {RANCH_ADDRESS_LINES[2]}
             </a>
           </div>
         </nav>

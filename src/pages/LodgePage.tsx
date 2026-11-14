@@ -42,6 +42,11 @@ export default function LodgePage() {
           rhythm of the land.
         </p>
         <p>
+          Inside, a rock fireplace anchors the common room: seating for conversation, a place to
+          come in from the porch, and the informal living room of the lodge. Guests gather there
+          between meals and evenings out, not in a separate event hall.
+        </p>
+        <p>
           It suits couples, small groups, and hosts who need a home base for a weekend, a retreat,
           or a celebration. Choose dates below to book your room directly.
         </p>
@@ -49,6 +54,9 @@ export default function LodgePage() {
           <a href="#book-room" className="primary">
             Book Room Now
           </a>
+          <Link to="/barn" className="secondary">
+            The Barn
+          </Link>
           <Link to="/rv-park" className="secondary">
             RV Park
           </Link>

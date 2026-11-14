@@ -15,34 +15,45 @@ const slides = [
     src: `${base}Lodge/lodge-porch.jpg`,
     alt: 'Lodge porch with rocking chairs at Briggs Brothers Ranch',
   },
+  {
+    src: `${base}Barn/aisle.jpg`,
+    alt: 'The barn aisle with wooden stalls at Briggs Brothers Ranch',
+  },
+  {
+    src: `${base}RVPark/sunset.jpg`,
+    alt: 'RV park at dusk on Briggs Brothers Ranch',
+  },
 ];
 
 export default function AccommodationsPage() {
   usePageMeta({
     title: 'Accommodations',
     description:
-      'Luxury ranch homes, guest cabins, glamping, and private suites—privacy and comfort at Briggs Brothers Ranch.',
-    keywords: 'luxury ranch lodging, ranch guest cabins, glamping wedding',
+      'Lodge rooms, the barn, and RV park stays at Briggs Brothers Ranch — book through Little Hotelier.',
+    keywords: 'ranch lodge, ranch barn stay, Parrottsville RV park, briggs brothers ranch lodging',
   });
 
   return (
     <>
       <PhotoHeroSlider
         title="Accommodations"
-        subtitle="Privacy · Comfort · Western calm"
+        subtitle="Lodge · Barn · RV Park"
         ariaLabel="Accommodations photos"
         slides={slides}
       />
       <article className="page-section">
         <h2>Stay on the estate</h2>
         <p>
-          Lodging is designed for buyouts: luxury ranch homes for leadership teams, guest cabins
-          for family groups, glamping for adventurous guests, and private suites for hosts who
-          demand quiet.
+          Choose the lodge for rooms and the common room, the barn when horses are part of the
+          stay, or the RV park if you are traveling with a rig. Lodge, barn, and RV stays book
+          through the same ranch booking engine.
         </p>
         <div className="cta-row">
-          <Link to="/plan-your-event" className="primary">
-            Check availability
+          <Link to="/lodge#book-room" className="primary">
+            Book Room Now
+          </Link>
+          <Link to="/barn" className="secondary">
+            The Barn
           </Link>
         </div>
       </article>

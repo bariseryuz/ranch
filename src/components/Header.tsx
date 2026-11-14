@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import OpenConciergeButton from './OpenConciergeButton.tsx';
+import { RANCH_MAPS_URL } from '../data/location.ts';
 import './Header.css';
 
 const logoUrl = `${import.meta.env.BASE_URL}logo.png`;
@@ -28,7 +29,13 @@ const EXPERIENCE_LINKS = [
 
 const ACCOMMODATION_LINKS = [
   { to: '/lodge', label: 'Lodge' },
+  { to: '/barn', label: 'Barn' },
   { to: '/rv-park', label: 'RV Park' },
+] as const;
+
+const DIRECTION_LINKS = [
+  { to: '/directions', label: 'Directions' },
+  { to: '/directions#map', label: 'Map' },
 ] as const;
 
 function isLargeLogoRoute(pathname: string) {
@@ -42,6 +49,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [experiencesOpen, setExperiencesOpen] = useState(false);
   const [accommodationsOpen, setAccommodationsOpen] = useState(false);
+  const [directionsOpen, setDirectionsOpen] = useState(false);
   const isHome = pathname === '/';
   const largeLogo = !isHome && isLargeLogoRoute(pathname);
 
@@ -49,6 +57,7 @@ const Header = () => {
     setOpen(false);
     setExperiencesOpen(false);
     setAccommodationsOpen(false);
+    setDirectionsOpen(false);
   };
 
   useEffect(() => {
@@ -136,6 +145,14 @@ const Header = () => {
             Accommodations
           </Link>
           <div className="nav-dropdown__panel" role="menu">
+            <Link
+              to="/accommodations"
+              className="nav-dropdown__item"
+              role="menuitem"
+              onClick={close}
+            >
+              All Accommodations
+            </Link>
             {ACCOMMODATION_LINKS.map(({ to, label }) => (
               <Link key={to} to={to} className="nav-dropdown__item" role="menuitem" onClick={close}>
                 {label}
@@ -149,9 +166,33 @@ const Header = () => {
         <Link to="/events" onClick={close}>
           Event Calendar
         </Link>
-        <Link to="/directions" onClick={close}>
-          Directions
-        </Link>
+        <div className="nav-dropdown">
+          <Link
+            to="/directions"
+            className="nav-dropdown__trigger"
+            aria-haspopup="menu"
+            onClick={close}
+          >
+            Directions
+          </Link>
+          <div className="nav-dropdown__panel" role="menu">
+            {DIRECTION_LINKS.map(({ to, label }) => (
+              <Link key={to} to={to} className="nav-dropdown__item" role="menuitem" onClick={close}>
+                {label}
+              </Link>
+            ))}
+            <a
+              href={RANCH_MAPS_URL}
+              className="nav-dropdown__item"
+              role="menuitem"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={close}
+            >
+              Google Maps
+            </a>
+          </div>
+        </div>
         <OpenConciergeButton className="concierge-inquiry-btn" onClick={close}>
           Concierge Inquiry
         </OpenConciergeButton>
@@ -229,6 +270,9 @@ const Header = () => {
             </button>
             <div className={`main-header__subnav ${accommodationsOpen ? 'is-open' : ''}`}>
               <div className="main-header__subnav-inner">
+                <Link to="/accommodations" className="main-header__subnav-link" onClick={close}>
+                  All Accommodations
+                </Link>
                 {ACCOMMODATION_LINKS.map(({ to, label }) => (
                   <Link key={to} to={to} className="main-header__subnav-link" onClick={close}>
                     {label}
@@ -244,9 +288,36 @@ const Header = () => {
           <Link to="/events" className="main-header__mobile-link" onClick={close}>
             Event Calendar
           </Link>
-          <Link to="/directions" className="main-header__mobile-link" onClick={close}>
-            Directions
-          </Link>
+
+          <div className="main-header__nav-group">
+            <button
+              type="button"
+              className={`main-header__mobile-link main-header__nav-toggle ${directionsOpen ? 'is-open' : ''}`}
+              aria-expanded={directionsOpen}
+              onClick={() => setDirectionsOpen((o) => !o)}
+            >
+              <span>Directions</span>
+              <span className="main-header__nav-chevron" aria-hidden />
+            </button>
+            <div className={`main-header__subnav ${directionsOpen ? 'is-open' : ''}`}>
+              <div className="main-header__subnav-inner">
+                {DIRECTION_LINKS.map(({ to, label }) => (
+                  <Link key={to} to={to} className="main-header__subnav-link" onClick={close}>
+                    {label}
+                  </Link>
+                ))}
+                <a
+                  href={RANCH_MAPS_URL}
+                  className="main-header__subnav-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={close}
+                >
+                  Google Maps
+                </a>
+              </div>
+            </div>
+          </div>
 
           <div className="main-header__nav-divider" aria-hidden />
 

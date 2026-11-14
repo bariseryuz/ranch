@@ -99,10 +99,13 @@
 
 .stay-card {
   position: relative;
+  display: block;
   height: clamp(420px, 52vw, 560px);
   overflow: hidden;
   border: 1px solid var(--sandstone);
   background: #2d1c0c;
+  color: inherit;
+  text-decoration: none;
 }
 
 .stay-card img {

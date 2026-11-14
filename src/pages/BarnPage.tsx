@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom';
 import { usePageMeta } from '../hooks/usePageMeta.ts';
 import OpenConciergeButton from '../components/OpenConciergeButton.tsx';
 import PhotoHeroSlider from '../components/PhotoHeroSlider.tsx';
+import LittleHotelierWidget from '../components/LittleHotelierWidget.tsx';
 import '../styles/editorial.css';
+import './LodgePage.css';
 
 const base = import.meta.env.BASE_URL;
 
@@ -29,8 +31,8 @@ export default function BarnPage() {
   usePageMeta({
     title: 'The Barn',
     description:
-      'The barn at Briggs Brothers Ranch — stalls, horses, and a working facility for horse events with 1311 Events.',
-    keywords: 'ranch barn, horse events, briggs brothers ranch stalls, 1311 events barn',
+      'The barn at Briggs Brothers Ranch — stalls, horses, and lodging booked through the ranch booking engine.',
+    keywords: 'ranch barn, horse boarding, briggs brothers ranch stalls, ranch lodging',
   });
 
   return (
@@ -49,20 +51,22 @@ export default function BarnPage() {
           stalls, shavings underfoot, and the quiet of a barn that is actually used.
         </p>
         <p>
-          The ranch hosts horse events here. Clinics, gatherings, and celebrations that want
+          Stay on the estate while you are here. Lodge rooms and ranch stays book through the same
+          Little Hotelier engine as the lodge — use Book Room Now below.
+        </p>
+        <p>
+          The ranch also hosts horse events here. Clinics, gatherings, and celebrations that want
           horses and land in the same picture belong in this building as much as they belong on
           the grounds around it.
         </p>
-        <p>
-          For events that need production — layout, rentals, food and drink, staffing —{' '}
-          <a href="https://1311events.com/" target="_blank" rel="noopener noreferrer">
-            1311 Events
-          </a>{' '}
-          works the barn the way they work the rest of the property: tailored to the occasion,
-          without turning the stall aisle into a ballroom.
-        </p>
         <div className="cta-row">
-          <Link to="/events" className="primary">
+          <a href="#book-room" className="primary">
+            Book Room Now
+          </a>
+          <Link to="/lodge" className="secondary">
+            The Lodge
+          </Link>
+          <Link to="/events" className="secondary">
             Event calendar
           </Link>
           <OpenConciergeButton className="secondary">
@@ -70,6 +74,22 @@ export default function BarnPage() {
           </OpenConciergeButton>
         </div>
       </article>
+
+      <section id="book-room" className="lodge-book" aria-labelledby="barn-book-title">
+        <div className="lodge-book__inner">
+          <p className="lodge-book__eyebrow">Reserve your stay</p>
+          <h2 id="barn-book-title" className="lodge-book__title">
+            Book Room Now
+          </h2>
+          <p className="lodge-book__lede">
+            Select your dates, room, and guests through the ranch booking engine — the same
+            Little Hotelier widget used on the lodge.
+          </p>
+          <div className="lodge-book__frame">
+            <LittleHotelierWidget />
+          </div>
+        </div>
+      </section>
     </>
   );
 }
