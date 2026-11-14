@@ -10,6 +10,7 @@ type Props = {
   variant?: 'default' | 'full' | 'sidecar';
   /** Optional texture/image layered on top of hero media (under headline). Encoded URL from `public/`. */
   overlayImage?: string;
+  className?: string;
 };
 
 export default function PageHero({
@@ -21,10 +22,16 @@ export default function PageHero({
   mediaFit = 'cover',
   variant = 'default',
   overlayImage,
+  className,
 }: Props) {
-  const rootClass = `page-hero ${variant === 'full' ? 'page-hero--full' : ''} ${
-    variant === 'sidecar' ? 'page-hero--sidecar' : ''
-  }`;
+  const rootClass = [
+    'page-hero',
+    variant === 'full' ? 'page-hero--full' : '',
+    variant === 'sidecar' ? 'page-hero--sidecar' : '',
+    className ?? '',
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   const media = (
     <div className={`page-hero__media page-hero__media--${mediaFit}`}>

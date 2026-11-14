@@ -13,16 +13,14 @@ type CalendarEvent = {
 
 const clinicWeekends: CalendarEvent[] = [
   {
-    title: 'Clinic weekend',
-    dates: 'April 23–25, 2027',
-    range: 'Friday through Sunday',
-    note: 'The lodge is blocked for this weekend. Guests should check Lodge booking for any openings.',
+    title: 'Learn & Ride Clinic',
+    dates: 'April 22–25, 2027',
+    range: 'Thursday through Sunday',
   },
   {
     title: 'Clinic weekend',
     dates: 'May 7–9, 2027',
     range: 'Friday through Sunday',
-    note: 'The lodge is blocked for this weekend. Guests should check Lodge booking for any openings.',
   },
 ];
 
@@ -65,7 +63,6 @@ const vertilux: CalendarEvent[] = [
     title: 'VERTILUX',
     dates: 'July 12–18, 2027',
     range: 'Monday through Sunday',
-    note: 'The lodge is blocked for this week.',
   },
 ];
 
@@ -86,6 +83,12 @@ function EventList({ events }: { events: CalendarEvent[] }) {
           <h4 className="event-calendar__title">{event.title}</h4>
           <p className="event-calendar__range">{event.range}</p>
           {event.note ? <p className="event-calendar__note">{event.note}</p> : null}
+          <OpenConciergeButton
+            className="event-calendar__details"
+            aria-label={`Click Here for Details — ${event.title}`}
+          >
+            Click Here for Details
+          </OpenConciergeButton>
         </li>
       ))}
     </ol>
@@ -103,6 +106,7 @@ export default function EventsPage() {
   return (
     <>
       <PageHero
+        className="events-page-hero"
         title="Event Calendar"
         subtitle="Upcoming on the ranch · 2027"
         image={`${import.meta.env.BASE_URL}Weddings/Event%20Setup%201.png`}

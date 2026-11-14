@@ -117,6 +117,13 @@
   color: var(--gold);
 }
 
+/* Events hero eyebrow — reads as a strong section title, not a thin kicker */
+.events-page-hero .page-hero__eyebrow {
+  font-weight: 700;
+  font-size: clamp(0.85rem, 1.6vw, 1rem);
+  letter-spacing: 0.18em;
+}
+
 .event-calendar-group {
   margin: 2.25rem 0 0;
 }
@@ -178,6 +185,28 @@
   margin: 0.45rem 0 0;
   font-weight: 300;
   opacity: 0.88;
+}
+
+.event-calendar__details {
+  display: inline-block;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  font: inherit;
+  font-family: var(--font-secondary);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: none;
+  color: var(--saddle-brown);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.event-calendar__details:hover,
+.event-calendar__details:focus-visible {
+  color: var(--gold);
 }
 
 .directions-map {
