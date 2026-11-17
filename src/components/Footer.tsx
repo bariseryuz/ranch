@@ -43,8 +43,9 @@ const Footer = () => {
           <div>
             <h4>Connect</h4>
             <Link to="/journal">Journal</Link>
-            <Link to="/directions">Directions</Link>
+            <Link to="/directions">Getting Here</Link>
             <Link to="/directions#map">Map</Link>
+            <Link to="/directions#print">Print</Link>
             <Link to="/lodge#book-room">Book Room Now</Link>
             <a href="mailto:info@briggsbrothersranch.com">info@briggsbrothersranch.com</a>
             <a href="tel:+14236237543" className="site-footer__phone">

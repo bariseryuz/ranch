@@ -34,8 +34,9 @@ const ACCOMMODATION_LINKS = [
 ] as const;
 
 const DIRECTION_LINKS = [
-  { to: '/directions', label: 'Directions' },
+  { to: '/directions', label: 'Getting Here' },
   { to: '/directions#map', label: 'Map' },
+  { to: '/directions#print', label: 'Print' },
 ] as const;
 
 function isLargeLogoRoute(pathname: string) {
