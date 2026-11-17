@@ -10,10 +10,6 @@ const base = import.meta.env.BASE_URL;
 
 const slides = [
   {
-    src: `${base}Barn/horse.jpg`,
-    alt: 'A black horse looking through a stall opening at Briggs Brothers Ranch',
-  },
-  {
     src: `${base}Barn/stall-14.jpg`,
     alt: 'Horse looking over stall door 14 in the ranch barn',
   },

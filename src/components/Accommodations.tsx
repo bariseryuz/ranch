@@ -14,8 +14,8 @@ const stays = [
   {
     title: 'The Barn',
     to: '/barn',
-    image: `${base}Barn/horse.jpg`,
-    alt: 'A horse looking through a stall opening at the ranch barn',
+    image: `${base}Barn/aisle.jpg`,
+    alt: 'The barn aisle with wooden stalls at Briggs Brothers Ranch',
   },
   {
     title: 'RV Park',

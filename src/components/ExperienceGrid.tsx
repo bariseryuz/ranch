@@ -13,7 +13,7 @@ const experiences = [
   {
     title: 'The Barn',
     to: '/barn',
-    image: `${base}Barn/horse.jpg`,
+    image: `${base}Barn/aisle.jpg`,
     features: [
       'Working ranch stalls',
       'Horses on the property',

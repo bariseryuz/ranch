@@ -13,7 +13,7 @@ const cards = [
     to: '/barn',
     title: 'The Barn',
     copy: 'Working stalls, horses, and a ranch barn for horse events with 1311 Events.',
-    image: `${base}Barn/horse.jpg`,
+    image: `${base}Barn/aisle.jpg`,
   },
   {
     to: '/corporate-retreats',
